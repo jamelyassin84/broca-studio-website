@@ -1,0 +1,38 @@
+<svg width="74" height="74" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 154">
+<circle id="Ellipse 1" opacity="0.05" cx="37" cy="37" r="37" fill="white"/>
+<g id="g1500">
+<g id="g1502">
+<g id="Clip path group">
+<mask id="mask0_38_1262" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="18" y="18" width="37" height="37">
+<g id="clipPath1508">
+<path id="path1506" d="M18 18H55V55H18V18Z" fill="white"/>
+</g>
+</mask>
+<g mask="url(#mask0_38_1262)">
+<g id="g1504">
+<g id="g1510">
+<path id="path1512" d="M22.6932 46.4827C21.6137 45.8607 20.9521 44.7109 20.9521 43.4671V29.5327C20.9521 28.2891 21.6137 27.1393 22.6932 26.5172C25.6821 24.79 31.7701 21.2777 34.7589 19.5505C35.8384 18.9284 37.1616 18.9284 38.2411 19.5505C41.2358 21.2777 47.318 24.79 50.3068 26.5172C51.3863 27.1393 52.0479 28.2891 52.0479 29.5327V43.4671C52.0479 44.7109 51.3863 45.8607 50.3068 46.4827C47.318 48.2099 41.2358 51.7222 38.2411 53.4494C37.1616 54.0715 35.8384 54.0715 34.7589 53.4494C31.7701 51.7222 25.6821 48.2099 22.6932 46.4827Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g id="g1514">
+<path id="path1516" d="M21.9849 28.1214L36.4997 36.5L51.0145 28.1214" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g id="g1518">
+<path id="path1520" d="M28.7231 49.9661V32.0115L44.2768 23.0338" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g id="g1522">
+<path id="path1524" d="M44.2768 49.9661V32.0115L28.7231 23.0338" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g id="g1526">
+<path id="path1528" d="M52.0479 36.5L36.5 45.4775L20.9521 36.5" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g id="g1530">
+<path id="path1532" d="M36.5 36.5002V53.2581" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg>

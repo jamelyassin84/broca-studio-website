@@ -1,0 +1,41 @@
+<div class="w-screen fixed px-[90px] pt-[40px] z-[20]">
+	<div class="[90px] pt-[6px] border-b-white/10 w-full flex items-center">
+		<img
+			alt=""
+			role="button"
+			routerLink="/"
+			class="object-cover z-[11] mb-9 ml-auto"
+			src="../../../../../assets/app/logo.svg"
+		/>
+
+		<ul class="flex items-center mx-auto text-white">
+			<li
+				role="button"
+				(click)="currentNavigation = nav"
+				class="px-[25px] pb-[31px] hover:opacity-80"
+				[ngClass]="{
+					'opacity-50': currentNavigation.name !== nav.name,
+					'border-b-2 border-white pointer-events-none':
+						currentNavigation.name === nav.name
+				}"
+				*ngFor="let nav of NAVBAR_NAVIGATION; trackBBy: trackByFn"
+			>
+				{{ nav.name }}
+			</li>
+		</ul>
+
+		<div class="flex items-center mb-10">
+			<button
+				class="border border-white/50 rounded-full h-[53px] w-[53px] flex items-center justify-center text-white mx-[7px] hover:bg-white/20"
+			>
+				EN
+			</button>
+
+			<button
+				class="text-white font-bold w-[214px] h-[53px] bg-brand-sky rounded-l-full rounded-r-full mx-[7px]"
+			>
+				تواصل معنا
+			</button>
+		</div>
+	</div>
+</div>

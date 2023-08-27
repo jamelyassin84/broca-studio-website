@@ -1,0 +1,198 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "broca-studio-website": {
+      "projectType": "application",
+      "schematics": {
+        "@ngrx/schematics:component": {
+            "styleext": "none",
+            "skipTests": true,
+            "standalone": true
+        },
+        "@schematics/angular:component": {
+            "style": "none",
+            "skipTests": true,
+            "standalone": true
+        },
+        "@schematics/angular:class": {
+            "skipTests": true
+        },
+        "@schematics/angular:directive": {
+            "skipTests": true,
+            "standalone": true
+        },
+        "@schematics/angular:guard": {
+            "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+            "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+            "skipTests": true,
+            "standalone": true
+        },
+        "@schematics/angular:resolver": {
+            "skipTests": true
+        },
+        "@schematics/angular:service": {
+            "skipTests": true
+        },
+        "@schematics/angular:application": {
+            "strict": true,
+            "standalone": true
+        }
+    },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser-esbuild",
+          "options": {
+            "outputPath": "dist/broca-studio-website/browser",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "broca-studio-website:build:production"
+            },
+            "development": {
+              "browserTarget": "broca-studio-website:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "broca-studio-website:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/broca-studio-website/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "inlineStyleLanguage": "scss"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "broca-studio-website:build:development",
+              "serverTarget": "broca-studio-website:server:development"
+            },
+            "production": {
+              "browserTarget": "broca-studio-website:build:production",
+              "serverTarget": "broca-studio-website:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "broca-studio-website:build:production",
+              "serverTarget": "broca-studio-website:server:production"
+            },
+            "development": {
+              "browserTarget": "broca-studio-website:build:development",
+              "serverTarget": "broca-studio-website:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
+        }
+      }
+    }
+  },
+  "cli": {
+    "schematicCollections": [
+      "@ngrx/schematics"
+    ]
+  }
+}

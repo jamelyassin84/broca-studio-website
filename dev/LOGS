@@ -1,0 +1,6 @@
+CREATE src/main.server.ts (264 bytes)
+CREATE src/app/app.config.server.ts (350 bytes)
+CREATE tsconfig.server.json (272 bytes)
+CREATE server.ts (2008 bytes)
+UPDATE package.json (1516 bytes)
+UPDATE angular.json (5060 bytes)

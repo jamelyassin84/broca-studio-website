@@ -1,0 +1,32 @@
+ng update @angular-eslint/schematics --allow-dirty --force
+ng update @angular/cdk --allow-dirty --force
+ng update @angular/cli --allow-dirty --force
+ng update @angular/core --allow-dirty --force
+ng update @angular/material --allow-dirty --force
+ng update @ngrx/store --allow-dirty --force
+
+
+
+ng update @ngrx/store@latest --allow-dirty --force
+ng update @ngrx/store-devtools@latest --allow-dirty --force
+ng update @ngrx/router-store@latest --allow-dirty --force
+ng update @ngrx/entity@latest --allow-dirty --force
+ng update @ngrx/schematics@latest --allow-dirty --force
+ng update @ngrx/component-store@latest --allow-dirty --force
+
+
+ng add @ngrx/store@latest --allow-dirty --force
+ng add @ngrx/store-devtools@latest --allow-dirty --force
+ng add @ngrx/router-store@latest --allow-dirty --force
+ng add @ngrx/entity@latest --allow-dirty --force
+ng add @ngrx/schematics@latest --allow-dirty --force
+ng add @ngrx/component-store@latest --allow-dirty --force
+ng add @ngrx/effects --allow-dirty --force
+
+
+npm install @ngrx/store@latest --allow-dirty --force
+npm install @ngrx/store-devtools@latest --allow-dirty --force
+npm install @ngrx/router-store@latest --allow-dirty --force
+npm install @ngrx/entity@latest --allow-dirty --force
+npm install @ngrx/schematics@latest --allow-dirty --force
+npm install @ngrx/component-store@latest --allow-dirty --force
