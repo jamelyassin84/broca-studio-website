@@ -1,5 +1,5 @@
 export interface Slider {
-	id: string
+	id: any
 	image: string
 	title: string
 	subTitle: string
