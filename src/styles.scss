@@ -1,3 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hide-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+
+@font-face {
+	font-family: 'Black';
+	src: url('./assets/fonts/LamaSans-Black.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Bold';
+	src: url('./assets/fonts/LamaSans-Bold.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Normal';
+	src: url('./assets/fonts/LamaSans-Regular.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
 html,
 body {
 	height: 100%;
@@ -6,15 +35,7 @@ body {
 }
 body {
 	margin: 0;
-	font-family: 'Inter', sans-serif;
+	font-family: 'Normal', sans-serif;
 	padding: 0;
 	box-sizing: border-box;
-}
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-.hide-scrollbar::-webkit-scrollbar {
-	display: none;
 }
