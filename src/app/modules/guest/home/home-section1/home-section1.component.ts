@@ -5,35 +5,41 @@ import { interval, repeat, take } from 'rxjs'
 import { SharedModule } from 'app/shared/shared.module'
 import { dbwAnimations } from '@broca-studio/animations/animation.api'
 import { HomeSection1SocialsComponent } from './components/home-section1-socials/home-section1-socials.component'
+import { HomeSection1PagesComponent } from './components/home-section1-pages/home-section1-pages.component'
+import { HomeSection1BackgroundComponent } from './components/home-section1-background/home-section1-background.component'
+import { HomeSection1NavigationComponent } from './home-section1-navigation/home-section1-navigation.component'
+import { HomeSection1OverlayComponent } from './home-section1-overlay/home-section1-overlay.component'
 
 @Component({
 	selector: 'home-section1',
 	standalone: true,
 	animations: [...dbwAnimations],
-	imports: [SharedModule, HomeSection1SocialsComponent],
 	templateUrl: './home-section1.component.html',
+	imports: [
+		SharedModule,
+		HomeSection1SocialsComponent,
+		HomeSection1PagesComponent,
+		HomeSection1OverlayComponent,
+		HomeSection1NavigationComponent,
+		HomeSection1BackgroundComponent,
+	],
 })
 export class HomeSection1Component {
-	readonly SLIDERS = SLIDERS
-	currentSlideIndex = 0
+	currentSlide = SLIDERS[0]
+
+	showNavigation: boolean = false
+
+	timeOuts: any[] = []
 
 	ngOnInit() {
-		interval(2000)
-			.pipe(take(this.SLIDERS.length), repeat())
-			.subscribe(() => {
-				this.slideNext()
-			})
+		const timeOut = setTimeout(() => {
+			this.showNavigation = true
+		}, 4000)
+
+		this.timeOuts.push(timeOut)
 	}
 
-	slideNext() {
-		this.currentSlideIndex++
-
-		if (this.currentSlideIndex >= this.SLIDERS.length) {
-			this.currentSlideIndex = 0
-		}
-	}
-
-	trackByFn(index: number, item: any): any {
-		return item.id || index
+	ngOnDestroy(): void {
+		this.timeOuts.forEach((t) => clearTimeout(t))
 	}
 }

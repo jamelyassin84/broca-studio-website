@@ -1,81 +1,35 @@
 <div
 	class="relative flex flex-col items-center justify-center w-full h-screen bg-black"
 >
-	<div class="w-full overflow-x-hidden">
-		<ng-container
-			*ngFor="let slider of SLIDERS; trackBy: trackByFn; let i = index"
-		>
-			<img
-				alt=""
-				@fadeIn
-				[src]="slider.image"
-				class="object-cover w-full h-full"
-				*ngIf="currentSlideIndex === i"
-			/>
-		</ng-container>
-	</div>
+	<home-section1-overlay class="absolute top-0 left-0 w-screen h-full" />
 
-	<div class="text-white font-bold text-[35px]">بروكا تبدع</div>
+	<!-- <home-section1-background class="w-full" [currentSlide]="currentSlide" /> -->
+
+	<home-section1-navigation
+		@slideInBottom
+		*ngIf="showNavigation"
+		class="relative z-9999"
+		[currentSlide]="currentSlide"
+		(onSlideChange)="currentSlide = $event"
+	/>
 
 	<div
-		style="
-			background: linear-gradient(
-				181deg,
-				rgba(0, 0, 0, 0.43) 0%,
-				#000 100%
-			);
-		"
-		class="absolute w-full h-full z-[2]"
-	></div>
+		@zoomIn
+		[animateCSS]="[
+			'animate__slideOutUp',
+			'animate__delay-3s',
+			'animate__faster'
+		]"
+		class="text-white font-bold text-[35px] relative z-[999]"
+	>
+		بروكا تبدع
+	</div>
 
 	<div
 		class="absolute bottom-[81px] z-10 flex items-center text-white w-full px-[93px]"
 	>
-		<div>
-			<div class="max-w-[313px]">
-				نُثريك في صناعة محتوى مرئي بإبداعات فريدة تروق لذهنك وتلامس
-				ذائقتك
-			</div>
-		</div>
+		<home-section1-pages />
 
-		<div class="flex items-center mr-auto">
-			<div class="mx-[25px]">تابعنا علي :</div>
-
-			<div
-				class="w-[50px] h-[50px] rounded-full border border-white/20 flex items-center mx-[3.5px] justify-center"
-			>
-				<img
-					src="../../../../../assets/app/socials/facebook.svg"
-					alt=""
-				/>
-			</div>
-
-			<div
-				class="w-[50px] h-[50px] rounded-full border border-white/20 flex items-center mx-[3.5px] justify-center"
-			>
-				<img
-					src="../../../../../assets/app/socials/instagram.svg"
-					alt=""
-				/>
-			</div>
-
-			<div
-				class="w-[50px] h-[50px] rounded-full border border-white/20 flex items-center mx-[3.5px] justify-center"
-			>
-				<img
-					src="../../../../../assets/app/socials/twitter.svg"
-					alt=""
-				/>
-			</div>
-
-			<div
-				class="w-[50px] h-[50px] rounded-full border border-white/20 flex items-center mx-[3.5px] justify-center"
-			>
-				<img
-					src="../../../../../assets/app/socials/linked-in.svg"
-					alt=""
-				/>
-			</div>
-		</div>
+		<home-section1-socials class="mr-auto" />
 	</div>
 </div>

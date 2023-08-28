@@ -18,7 +18,7 @@
 					'border-b-2 border-white pointer-events-none':
 						currentNavigation.name === nav.name
 				}"
-				*ngFor="let nav of NAVBAR_NAVIGATION; trackBBy: trackByFn"
+				*ngFor="let nav of NAVBAR_NAVIGATION; trackBy: trackByFn"
 			>
 				{{ nav.name }}
 			</li>

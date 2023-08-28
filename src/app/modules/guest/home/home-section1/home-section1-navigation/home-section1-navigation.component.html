@@ -1,0 +1,24 @@
+<div class="w-full overflow-x-auto whitespace-no-wrap hide-scrollbar">
+	<ul class="flex items-end">
+		<li
+			role="button"
+			(mouseenter)="onSlideChange.emit(slide)"
+			[ngClass]="{
+				'text-white': currentSlide.id === slide.id,
+				'text-white/50': currentSlide.id !== slide.id
+			}"
+			class="font-bold text-[35px] mr-[50px] flex flex-col"
+			*ngFor="let slide of SLIDERS; trackBy: trackByFn"
+		>
+			<div
+				*ngIf="currentSlide.id === slide.id"
+				class="text-[16px] font-normal"
+			>
+				{{ slide.subTitle }} ({{ slide.id }})
+			</div>
+			<div>
+				{{ slide.title }}
+			</div>
+		</li>
+	</ul>
+</div>
