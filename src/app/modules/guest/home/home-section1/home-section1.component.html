@@ -1,28 +1,35 @@
 <div
 	class="relative flex flex-col items-center justify-center w-full h-screen bg-black"
 >
-	<home-section1-overlay class="absolute top-0 left-0 w-screen h-full" />
-
-	<!-- <home-section1-background class="w-full" [currentSlide]="currentSlide" /> -->
-
-	<home-section1-navigation
-		@slideInBottom
-		*ngIf="showNavigation"
-		class="relative z-9999"
-		[currentSlide]="currentSlide"
-		(onSlideChange)="currentSlide = $event"
+	<home-section1-overlay
+		class="absolute top-0 left-0 w-screen h-full z-[5]"
 	/>
 
-	<div
-		@zoomIn
-		[animateCSS]="[
-			'animate__slideOutUp',
-			'animate__delay-3s',
-			'animate__faster'
-		]"
-		class="text-white font-bold text-[35px] relative z-[999]"
-	>
-		بروكا تبدع
+	<home-section1-background
+		class="w-full relative z-[1] h-full"
+		[currentSlide]="currentSlide"
+	/>
+
+	<div class="absolute">
+		<home-section1-navigation
+			@slideInBottom
+			*ngIf="showNavigation"
+			class="relative z-[6]"
+			[currentSlide]="currentSlide"
+			(onSlideChange)="currentSlide = $event"
+		/>
+
+		<div
+			@zoomIn
+			[animateCSS]="[
+				'animate__slideOutUp',
+				'animate__delay-3s',
+				'animate__faster'
+			]"
+			class="text-white font-bold text-[35px] relative z-[6]"
+		>
+			بروكا تبدع
+		</div>
 	</div>
 
 	<div

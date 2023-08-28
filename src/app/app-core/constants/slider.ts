@@ -18,6 +18,13 @@ export const SLIDERS: Slider[] = [
 	{
 		id: '3',
 		image: 'assets/app/home/bg-4.png',
+		title: 'تصميم البيئات الافتراضية',
+		subTitle: 'بــــــروكــــــا',
+	},
+
+	{
+		id: '4',
+		image: 'assets/app/home/bg-2.png',
 		title: 'تصميم والجرافيك',
 		subTitle: 'بــــــروكــــــا',
 	},
