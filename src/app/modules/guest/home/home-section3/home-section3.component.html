@@ -1,11 +1,35 @@
-<div class="flex flex-col w-full bg-brand-dark-gray p-[80px]">
+<div class="flex flex-col w-full bg-brand-dark-gray p-[80px] min-h-[100vh]">
 	<div class="text-center font-bold text-white text-[30px]">شركة بروكا</div>
+
 	<div class="text-center font-bold text-white/70 text-[16px]">
 		رائدة في تصميم الالعاب فى السعودية من إنشاء ألعاب رائعة على مجموعة
 		متنوعة من المنصات المتنوعة
 	</div>
 
 	<div
-		class="w-full grid grid-cols-2 md:grid-cols-3 gap-x-[21px] min-h-[100vh] max-w-screen-lg mx-auto gap-y-[50px]"
-	></div>
+		class="w-full grid grid-cols-2 md:grid-cols-3 gap-x-[21px] max-w-screen-lg mx-auto gap-y-[30px] mt-[50px] items-center"
+	>
+		<div
+			role="button"
+			class="rounded-2xl bg-brand-card-light flex items-center px-[20px] py-[48px] justify-center hover:bg-brand-purple"
+			*ngFor="let microService of MICRO_SERVICES; trackBy: trackByFn"
+		>
+			<img
+				priority="high"
+				height="74"
+				width="74"
+				[ngSrc]="microService.icon"
+				alt=""
+			/>
+
+			<div class="text-white mr-[20px]">
+				<div class="text-[18px] font-bold">
+					{{ microService.title }}
+				</div>
+				<div class="text-[16px] text-white/70">
+					{{ microService.description }}
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
