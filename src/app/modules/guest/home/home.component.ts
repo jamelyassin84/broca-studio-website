@@ -35,7 +35,13 @@ const standaloneComponents = [
 })
 export class HomeComponent {
 	showLanding$ = timer(500).pipe(
-		switchMap(() => timer(50).pipe(map(() => true))),
+		switchMap(() =>
+			timer(50).pipe(
+				map(() => {
+					return true
+				}),
+			),
+		),
 		startWith(false),
 	)
 }

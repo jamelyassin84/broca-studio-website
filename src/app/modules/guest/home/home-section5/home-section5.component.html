@@ -1,1 +1,46 @@
-<p>home-section5 works!</p>
+<div class="flex w-full bg-brand-black flex-col p-[80px]">
+	<div class="text-center font-bold text-white text-[30px]">صور اللعبة</div>
+
+	<div class="text-center font-bold text-white/70 text-[16px]">
+		صور من داخل اللعبة تعككس جودتها وطريقة تصممها بشكل رائع
+	</div>
+
+	<div
+		class="gap-x-[27px] w-full grid md:grid-cols-3 max-w-screen-xl mx-auto mt-[50px]"
+	>
+		<div
+			*ngFor="
+				let item of [1, 2, 3];
+				trackBy: trackByFn;
+				let index = index
+			"
+		>
+			<ng-container *ngIf="index !== 1">
+				<div
+					class="mb-[27px]"
+					*ngFor="
+						let item of [1, 2, 3];
+						let secondIndex = index;
+						trackBy: trackByFn;
+						let index = index
+					"
+				>
+					<img
+						width="389.453"
+						height="389.453"
+						class="rounded-[20px] object-cover"
+						[ngSrc]="CINEMATIC_GRID[index * secondIndex]"
+						alt=""
+					/>
+				</div>
+			</ng-container>
+
+			<img
+				class="rounded-[20px] object-cover w-full h-[95%] flex-shrink-0"
+				*ngIf="index === 1"
+				[src]="CINEMATIC_GRID[3]"
+				alt=""
+			/>
+		</div>
+	</div>
+</div>

@@ -34,7 +34,7 @@ export class HomeSection1Component {
 	ngOnInit() {
 		const timeOut = setTimeout(() => {
 			this.showNavigation = true
-		}, 4000)
+		}, 5000)
 
 		this.timeOuts.push(timeOut)
 	}

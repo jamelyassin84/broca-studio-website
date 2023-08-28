@@ -1,11 +1,10 @@
 <div
-	[animateCSS]="['animate__fadeInDownBig', 'animate__faster']"
-	class="fixed flex flex-col items-center justify-center w-full h-screen"
+	@fadeInTop
+	class="fixed flex flex-col items-center justify-center w-full h-full"
 >
 	<img
 		fill=""
 		alt=""
-		priority="high"
 		class="absolute object-cover z-[10]"
 		ngSrc="../../../../../assets/app/home/bg-default.png"
 	/>
