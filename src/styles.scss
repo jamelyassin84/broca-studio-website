@@ -39,3 +39,7 @@ body {
 	padding: 0;
 	box-sizing: border-box;
 }
+
+.text-outline {
+	-webkit-text-stroke: 1px rgba(250, 250, 250, 0.5); /* Adjust the color and width as needed */
+}

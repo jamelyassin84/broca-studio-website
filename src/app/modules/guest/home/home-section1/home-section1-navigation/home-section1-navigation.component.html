@@ -7,7 +7,8 @@
 			(mouseenter)="onSlideChange.emit(slide)"
 			[ngClass]="{
 				'text-white': currentSlide.id === slide.id,
-				'text-white/50': currentSlide.id !== slide.id
+				'text-outline text-black/50 font-black':
+					currentSlide.id !== slide.id
 			}"
 			class="font-bold text-[35px] mr-[50px] flex flex-col"
 			*ngFor="let slide of SLIDERS; trackBy: trackByFn"
