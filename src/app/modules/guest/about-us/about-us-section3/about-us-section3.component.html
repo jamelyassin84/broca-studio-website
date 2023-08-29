@@ -1,1 +1,36 @@
-<p>about-us-section3 works!</p>
+<div class="flex flex-col w-full bg-black p-[80px] mt-30">
+	<div class="text-center font-bold text-white text-[30px] mx-auto">
+		طاقم عمل بروكا
+	</div>
+
+	<div
+		class="text-center font-bold text-white/70 text-[16px] w-[578px] mx-auto"
+	>
+		بروكا ُثريك في صناعة محتوى مرئي بإبداعات فريدة تروق لذهنك وتلامس ذائقتك
+	</div>
+
+	<div
+		class="grid grid-cols-2 md:grid-cols-6 gap-[52px] mt-[50px] w-full max-w-screen-lg mx-auto"
+	>
+		<div
+			*ngFor="
+				let team of OUR_TEAMS;
+				trackBy: trackByFn;
+				let index = index
+			"
+		>
+			<img
+				class="rounded-full mb-[28px]"
+				width="170"
+				height="170"
+				[ngSrc]="team.image"
+				alt=""
+			/>
+
+			<div class="text-white font-bold text-[18px] mb-[16px]">
+				{{ team.name }}
+			</div>
+			<div class="text-white/50 text-[14px]">{{ team.position }}</div>
+		</div>
+	</div>
+</div>
