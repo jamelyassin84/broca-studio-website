@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'
+import { AWARDS } from 'app/app-core/constants/awards'
 import { SharedModule } from 'app/shared/shared.module'
 
 @Component({
@@ -7,4 +8,10 @@ import { SharedModule } from 'app/shared/shared.module'
 	imports: [SharedModule],
 	templateUrl: './about-us-section2.component.html',
 })
-export class AboutUsSection2Component {}
+export class AboutUsSection2Component {
+	readonly AWARDS = AWARDS
+
+	trackByFn(index: number, item: any): any {
+		return item.id || index
+	}
+}

@@ -22,9 +22,7 @@ export class NavbarComponent {
 				map((e) => e instanceof NavigationEnd),
 				tap(() => {
 					this.NAVBAR_NAVIGATION.forEach((nav) => {
-						console.log(nav.link)
 						if (this._router.url.includes(nav.link)) {
-							console.log(nav)
 							this.currentNavigation = nav
 						}
 					})
@@ -32,17 +30,16 @@ export class NavbarComponent {
 			)
 			.subscribe()
 	}
+	readonly isInHome$ = this._router.events.pipe(
+		map((e) => e instanceof NavigationEnd),
+		map(() => this._router.url.includes('home')),
+	)
 
 	readonly scrollTop$: Observable<number> = this._mediaService.getScrollTop()
 
 	readonly NAVBAR_NAVIGATION = NAVBAR_NAVIGATION
 
 	currentNavigation = undefined
-
-	isInHome$ = this._router.events.pipe(
-		map((e) => e instanceof NavigationEnd),
-		map(() => this._router.url.includes('home')),
-	)
 
 	trackByFn(index: number, item: any): any {
 		return item.id || index
