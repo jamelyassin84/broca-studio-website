@@ -6,6 +6,8 @@ import { AboutUsSection1Component } from './about-us-section1/about-us-section1.
 import { AboutUsSection3Component } from './about-us-section3/about-us-section3.component'
 import { AboutUsSection2Component } from './about-us-section2/about-us-section2.component'
 import { AboutUsSection4Component } from './about-us-section4/about-us-section4.component'
+import { ContactUsComponent } from 'app/components/common/contact-us/contact-us.component'
+import { FooterComponent } from 'app/components/common/footer/footer.component'
 
 const standaloneComponents = [
 	NavbarComponent,
@@ -14,6 +16,8 @@ const standaloneComponents = [
 	AboutUsSection3Component,
 	AboutUsSection4Component,
 	AboutUsSection5Component,
+	ContactUsComponent,
+	FooterComponent,
 ]
 
 @Component({
