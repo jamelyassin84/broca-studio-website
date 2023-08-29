@@ -1,4 +1,16 @@
-<div class="w-screen fixed px-[90px] pt-[40px] z-[20]">
+<div
+	[ngClass]="{
+		'bg-transparent':
+			(isInHome$ | async) || !(scrollTop$ | async) ,
+		'bg-black/20 backdrop-blur-lg   ':
+			!(isInHome$ | async) ||
+			((isInHome$ | async) && (scrollTop$ | async) > 5 * 190)
+				? true
+				: false,
+	
+	}"
+	class="w-screen fixed px-[90px] pt-[40px] z-[20]"
+>
 	<div
 		class="[90px] pt-[6px] border-b-white/10 w-full flex items-center max-w-screen-lg mx-auto"
 	>

@@ -8,6 +8,7 @@ import { AboutUsSection2Component } from './about-us-section2/about-us-section2.
 import { AboutUsSection4Component } from './about-us-section4/about-us-section4.component'
 import { ContactUsComponent } from 'app/components/common/contact-us/contact-us.component'
 import { FooterComponent } from 'app/components/common/footer/footer.component'
+import { dbwAnimations } from '@broca-studio/animations/animation.api'
 
 const standaloneComponents = [
 	NavbarComponent,
@@ -23,6 +24,8 @@ const standaloneComponents = [
 @Component({
 	selector: 'about-us',
 	standalone: true,
+	animations: [...dbwAnimations],
+
 	imports: [SharedModule, ...standaloneComponents],
 	templateUrl: './about-us.component.html',
 })
