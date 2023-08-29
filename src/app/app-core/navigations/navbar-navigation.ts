@@ -1,26 +1,26 @@
 export const NAVBAR_NAVIGATION = [
 	{
 		name: 'عملائنا',
-		link: '',
+		link: '/home',
 	},
 
 	{
 		name: 'خدمتنا',
-		link: '',
+		link: '/about-us',
 	},
 
 	{
 		name: 'اعمالنا',
-		link: '',
+		link: '/our-work',
 	},
 
 	{
 		name: 'الشركة',
-		link: '',
+		link: '/our-services',
 	},
 
 	{
 		name: 'الرئيسية',
-		link: '',
+		link: '/our-clients',
 	},
 ]

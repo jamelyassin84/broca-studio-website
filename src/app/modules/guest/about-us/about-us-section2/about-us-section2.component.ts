@@ -1,12 +1,10 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core'
+import { SharedModule } from 'app/shared/shared.module'
 
 @Component({
-  selector: 'about-us-section2',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './about-us-section2.component.html'
+	selector: 'about-us-section2',
+	standalone: true,
+	imports: [SharedModule],
+	templateUrl: './about-us-section2.component.html',
 })
-export class AboutUsSection2Component {
-
-}
+export class AboutUsSection2Component {}

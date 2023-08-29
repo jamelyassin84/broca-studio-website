@@ -11,6 +11,7 @@
 		<ul class="flex items-center mx-auto text-white">
 			<li
 				role="button"
+				[routerLink]="nav.link"
 				(click)="currentNavigation = nav"
 				class="px-[25px] pb-[31px] hover:opacity-80"
 				[ngClass]="{

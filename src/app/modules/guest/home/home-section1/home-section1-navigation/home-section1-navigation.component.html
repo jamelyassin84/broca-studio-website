@@ -3,7 +3,7 @@
 		<li
 			role="button"
 			(mouseenter)="onSlideChange.emit(slide)"
-			class="font-bold text-[35px] mr-[50px] flex flex-col"
+			class="font-bold mr-[50px] flex flex-col"
 			[ngClass]="{
 				'text-white': currentSlide.id === slide.id,
 				'text-outline text-black/50 font-black':
@@ -17,7 +17,8 @@
 			>
 				{{ slide.subTitle }} ({{ slide.id }})
 			</div>
-			<div>
+
+			<div class="text-[25px] xl:text-[35px]">
 				{{ slide.title }}
 			</div>
 		</li>

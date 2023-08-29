@@ -1,11 +1,11 @@
 import { Component } from '@angular/core'
-import { CommonModule } from '@angular/common'
 import { NAVBAR_NAVIGATION } from 'app/app-core/navigations/navbar-navigation'
+import { SharedModule } from 'app/shared/shared.module'
 
 @Component({
 	selector: 'navbar',
 	standalone: true,
-	imports: [CommonModule],
+	imports: [SharedModule],
 	templateUrl: './navbar.component.html',
 })
 export class NavbarComponent {
