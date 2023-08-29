@@ -4,7 +4,8 @@ import { dbwAnimations } from '@broca-studio/animations/animation.api'
 import { MediaService } from '@broca-studio/utilities/media.service'
 import { NAVBAR_NAVIGATION } from 'app/app-core/navigations/navbar-navigation'
 import { SharedModule } from 'app/shared/shared.module'
-import { Observable, map } from 'rxjs'
+import { Observable, map, tap } from 'rxjs'
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 
 @Component({
 	selector: 'navbar',
@@ -14,13 +15,29 @@ import { Observable, map } from 'rxjs'
 	templateUrl: './navbar.component.html',
 })
 export class NavbarComponent {
-	constructor(private _router: Router, private _mediaService: MediaService) {}
+	constructor(private _router: Router, private _mediaService: MediaService) {
+		this._router.events
+			.pipe(
+				takeUntilDestroyed(),
+				map((e) => e instanceof NavigationEnd),
+				tap(() => {
+					this.NAVBAR_NAVIGATION.forEach((nav) => {
+						console.log(nav.link)
+						if (this._router.url.includes(nav.link)) {
+							console.log(nav)
+							this.currentNavigation = nav
+						}
+					})
+				}),
+			)
+			.subscribe()
+	}
 
 	readonly scrollTop$: Observable<number> = this._mediaService.getScrollTop()
 
 	readonly NAVBAR_NAVIGATION = NAVBAR_NAVIGATION
 
-	currentNavigation = NAVBAR_NAVIGATION[0]
+	currentNavigation = undefined
 
 	isInHome$ = this._router.events.pipe(
 		map((e) => e instanceof NavigationEnd),

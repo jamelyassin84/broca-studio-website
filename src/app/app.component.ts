@@ -12,20 +12,15 @@ import { Observable, fromEvent } from 'rxjs'
 	templateUrl: './app.component.html',
 })
 export class AppComponent {
-	constructor(private _mediaService: MediaService) {
-		// fromEvent(window, 'scroll').subscribe((e) => {
-		// 	this.onWindowScroll()
-		// })
-	}
+	constructor(private _mediaService: MediaService) {}
 
 	@HostListener('window:resize')
 	onResize() {
 		this._mediaService.onResize()
 	}
 
-	@HostListener('window:scroll', ['$event'])
-	onWindowScroll(e) {
-		console.log(e.target['scrollingElement'].scrollTop)
+	@HostListener('window:scroll')
+	onWindowScroll() {
 		this._mediaService.onScroll()
 	}
 

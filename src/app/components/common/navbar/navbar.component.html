@@ -1,10 +1,10 @@
 <div
 	[ngClass]="{
-		'bg-transparent':
+		'bg-transparent backdrop-blur-0':
 			(isInHome$ | async) || !(scrollTop$ | async) ,
-		'bg-black/20 backdrop-blur-lg   ':
+		'bg-black/10 backdrop-blur-md':
 			!(isInHome$ | async) ||
-			((isInHome$ | async) && (scrollTop$ | async) > 5 * 190)
+			((isInHome$ | async) && (scrollTop$ | async) > 15 * 190)
 				? true
 				: false,
 	
@@ -12,22 +12,25 @@
 	class="w-screen fixed px-[90px] pt-[40px] z-[20]"
 >
 	<div
-		class="[90px] pt-[6px] border-b-white/10 w-full flex items-center max-w-screen-lg mx-auto"
+		class="[90px] pt-[6px] border-b-white/10 border-b w-full flex items-center max-w-screen-lg mx-auto"
 	>
 		<img
 			alt=""
 			role="button"
 			routerLink="/"
-			class="object-cover z-[11] mb-9 ml-auto"
+			class="object-cover z-[11] ml-auto -translate-y-5"
 			src="../../../../../assets/app/logo.svg"
 		/>
 
-		<ul class="flex items-center mx-auto text-white">
+		<ul
+			*ngIf="currentNavigation"
+			class="flex items-center mx-auto text-white"
+		>
 			<li
 				role="button"
 				[routerLink]="nav.link"
 				(click)="currentNavigation = nav"
-				class="px-[25px] pb-[31px] hover:opacity-80"
+				class="px-[25px] pb-[31px] hover:opacity-80 min-w-[74px ]"
 				[ngClass]="{
 					'opacity-50': currentNavigation.name !== nav.name,
 					'border-b-2 border-white pointer-events-none':
@@ -39,7 +42,7 @@
 			</li>
 		</ul>
 
-		<div class="flex items-center mb-10">
+		<div class="flex items-center -translate-y-5">
 			<button
 				class="border border-white/50 rounded-full h-[53px] w-[53px] flex items-center justify-center text-white mx-[7px] hover:bg-white/20"
 			>
