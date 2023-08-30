@@ -1,1 +1,32 @@
-<p>our-services-section2 works!</p>
+<div class="flex flex-col w-full bg-brand-black min-h-[100vh] p-[80px]">
+	<div
+		[@listAnimation]="OUR_SERVICES.length"
+		class="grid grid-cols-2 md:grid-cols-3 w-full max-w-screen-lg mx-auto gap-y-[40px] gap-x-[20px]"
+	>
+		<div
+			class="w-full p-[42px] md:hover:bg-brand-purple rounded-[20px] bg-brand-card-light"
+			*ngFor="let service of OUR_SERVICES; trackBy: trackByFn"
+		>
+			<div class="flex items-center w-full">
+				<img
+					class="h-[58px] object-contain mb-[44px]"
+					[src]="service.icon"
+					alt=""
+				/>
+
+				<img
+					class="ml-auto"
+					src="../../../../../assets/app/our-services/arrow-right.svg"
+					alt=""
+				/>
+			</div>
+
+			<div class="text-white font-bold text-[18px] mb-[18px]">
+				{{ service.title }}
+			</div>
+			<div class="text-[16px] text-white/50 font-light">
+				{{ service.description }}
+			</div>
+		</div>
+	</div>
+</div>
