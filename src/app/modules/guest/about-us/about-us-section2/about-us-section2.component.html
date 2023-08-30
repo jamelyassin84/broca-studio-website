@@ -9,15 +9,16 @@
 		بروكا ُثريك في صناعة محتوى مرئي بإبداعات فريدة تروق لذهنك وتلامس ذائقتك
 	</div>
 
+	<!-- -mb-[146px] -->
 	<div
-		class="relative z-30 grid grid-cols-2 md:grid-cols-4 gap-[50px] mt-[50px] w-full max-w-screen-lg mx-auto rounded-[20px] border border-white/20 bg-brand-black items-center -mb-[146px]"
+		class="relative z-30 grid grid-cols-2 md:grid-cols-4 gap-[50px] mt-[50px] w-full max-w-screen-lg mx-auto rounded-[20px] border border-white/20 bg-brand-black items-center"
 	>
 		<div
 			class="p-[16px] py-[70px] relative"
 			*ngFor="let award of AWARDS; trackBy: trackByFn; let index = index"
 		>
 			<div
-				*ngIf="index !== AWARDS.length"
+				*ngIf="index !== 0"
 				class="right-0 rounded-full bg-white/20 w-[3px] h-[94px] absolute translate-x-7 translate-y-10"
 			></div>
 
