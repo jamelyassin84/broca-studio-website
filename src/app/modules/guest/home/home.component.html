@@ -18,9 +18,10 @@
 
 		<ng-container *ngIf="(currentSlide$ | async)?.id === '1'">
 			<home-section2 />
-
-			<home-section3 />
 		</ng-container>
+
+		<home-section3 />
+
 		<ng-container *ngIf="(currentSlide$ | async)?.id === '3'">
 			<home-section4 />
 
