@@ -1,1 +1,53 @@
-<p>our-work-section2 works!</p>
+<div class="flex flex-col w-full bg-brand-black py-[80px]">
+	<div class="mx-auto overflow-x-auto hide-scrollbar -translate-x-[40px]">
+		<ul class="flex max-w-screen-xl whitespace-nowrap">
+			<li
+				role="button"
+				(click)="currentNav = nav"
+				[ngClass]="{ 'bg-brand-purple': currentNav === nav }"
+				class="flex mr-[10px] items-center px-6 py-4 text-[17px] text-white rounded-full bg-brand-card-light md:hover:brightness-125"
+				*ngFor="let nav of OUR_WORK_NAVIGATION; trackBy: trackByFn"
+			>
+				{{ nav }}
+			</li>
+		</ul>
+	</div>
+
+	<div
+		[@listAnimation]="OUR_WORKS.length"
+		class="grid md:grid-cols-2 w-full max-w-screen-lg mx-auto px-[80px] gap-y-[50px] gap-x-[20px] mt-[77px]"
+	>
+		<div class="w-full" *ngFor="let work of OUR_WORKS; trackBy: trackByFn">
+			<div class="relative w-full">
+				<div
+					style="
+						background: linear-gradient(
+							181deg,
+							rgba(0, 0, 0, 0.43) 0%,
+							#000 100%
+						);
+					"
+					class="absolute w-full h-full z-[2]"
+				></div>
+
+				<img
+					class="w-full rounded-[20px] h-[332px] object-cover"
+					[src]="work.image"
+					alt=""
+				/>
+			</div>
+
+			<div
+				class="font-bold text-white text-[24px] text-center mb-[62px] -mt-[72px] relative z-[20]"
+			>
+				{{ work.title }}
+			</div>
+
+			<button
+				class="text-white text-[16px] text-center py-[19px] rounded-full bg-brand-card-light w-full md:hover:brightness-125"
+			>
+				{{ work.buttonTitle }}
+			</button>
+		</div>
+	</div>
+</div>

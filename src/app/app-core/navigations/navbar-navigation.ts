@@ -2,13 +2,13 @@ export const NAVBAR_NAVIGATION = [
 	{
 		id: 1,
 		name: 'عملائنا',
-		link: '/home',
+		link: '/our-clients',
 	},
 
 	{
 		id: 2,
 		name: 'خدمتنا',
-		link: '/about-us',
+		link: '/our-services',
 	},
 
 	{
@@ -20,12 +20,12 @@ export const NAVBAR_NAVIGATION = [
 	{
 		id: 4,
 		name: 'الشركة',
-		link: '/our-services',
+		link: '/about-us',
 	},
 
 	{
 		id: 5,
 		name: 'الرئيسية',
-		link: '/our-clients',
+		link: '/home',
 	},
-]
+].reverse()
