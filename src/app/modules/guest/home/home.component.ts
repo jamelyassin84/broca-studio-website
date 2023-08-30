@@ -12,6 +12,7 @@ import { HomeSection4Component } from './home-section4/home-section4.component'
 import { HomeSection5Component } from './home-section5/home-section5.component'
 import { dbwAnimations } from '@broca-studio/animations/animation.api'
 import { map, startWith, switchMap, timer } from 'rxjs'
+import { SliderService } from 'app/app-core/providers/slider.service'
 
 const standaloneComponents = [
 	ContactUsComponent,
@@ -31,9 +32,14 @@ const standaloneComponents = [
 	selector: 'home',
 	standalone: true,
 	templateUrl: './home.component.html',
+	animations:[...dbwAnimations],
 	imports: [SharedModule, ...standaloneComponents],
 })
 export class HomeComponent {
+	constructor(private readonly _sliderService: SliderService) {}
+
+	readonly currentSlide$ = this._sliderService.currentSlide$
+
 	showLanding$ = timer(500).pipe(
 		switchMap(() =>
 			timer(50).pipe(

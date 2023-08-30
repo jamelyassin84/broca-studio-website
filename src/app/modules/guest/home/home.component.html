@@ -16,13 +16,16 @@
 	<div class="flex flex-col w-full">
 		<home-section1 />
 
-		<home-section2 />
+		<ng-container *ngIf="(currentSlide$ | async)?.id === '1'">
+			<home-section2 />
 
-		<home-section3 />
+			<home-section3 />
+		</ng-container>
+		<ng-container *ngIf="(currentSlide$ | async)?.id === '3'">
+			<home-section4 />
 
-		<home-section4 />
-
-		<home-section5 />
+			<home-section5 />
+		</ng-container>
 
 		<contact-us />
 

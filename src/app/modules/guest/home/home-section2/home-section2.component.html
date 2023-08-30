@@ -1,10 +1,11 @@
 <div class="flex w-full bg-brand-black">
 	<ul
+		[@listAnimation]="GAMES.length"
 		class="w-full grid grid-cols-2 md:grid-cols-3 gap-x-[21px] p-[80px] min-h-[100vh] max-w-screen-lg mx-auto gap-y-[50px]"
 	>
 		<li
-			*ngFor="let game of GAMES"
 			role="button"
+			*ngFor="let game of GAMES"
 			class="bg-brand-card-dark py-[20px] px-[25px] rounded-[20px] text-center hover:ring-4 hover:ring-brand-yellow/50"
 		>
 			<img

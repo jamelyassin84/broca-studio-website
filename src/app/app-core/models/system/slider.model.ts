@@ -3,4 +3,6 @@ export interface Slider {
 	image: string
 	title: string
 	subTitle: string
+	headline: string
+	subHeadline: string
 }

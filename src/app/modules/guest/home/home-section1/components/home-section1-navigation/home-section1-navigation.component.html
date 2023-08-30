@@ -2,6 +2,7 @@
 	<ul [@listAnimation]="SLIDERS.length" class="flex items-end">
 		<li
 			role="button"
+			(click)="currentSlide$.next(slide)"
 			(mouseenter)="onSlideChange.emit(slide)"
 			class="font-bold mr-[50px] flex flex-col"
 			[ngClass]="{

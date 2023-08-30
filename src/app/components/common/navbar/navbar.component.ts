@@ -6,6 +6,7 @@ import { NAVBAR_NAVIGATION } from 'app/app-core/navigations/navbar-navigation'
 import { SharedModule } from 'app/shared/shared.module'
 import { Observable, map, tap } from 'rxjs'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
+import { SliderService } from 'app/app-core/providers/slider.service'
 
 @Component({
 	selector: 'navbar',
@@ -15,7 +16,11 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 	templateUrl: './navbar.component.html',
 })
 export class NavbarComponent {
-	constructor(private _router: Router, private _mediaService: MediaService) {
+	constructor(
+		private readonly _router: Router,
+		private readonly _mediaService: MediaService,
+		private readonly _sliderService: SliderService,
+	) {
 		this._router.events
 			.pipe(
 				takeUntilDestroyed(),
@@ -30,6 +35,9 @@ export class NavbarComponent {
 			)
 			.subscribe()
 	}
+
+	readonly currentSlide$ = this._sliderService.currentSlide$
+
 	readonly isInHome$ = this._router.events.pipe(
 		map((e) => e instanceof NavigationEnd),
 		map(() => this._router.url.includes('home')),
