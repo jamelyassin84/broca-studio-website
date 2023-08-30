@@ -1,4 +1,7 @@
-<div class="flex flex-col w-full bg-black p-[80px] min-h-[738px] relative">
+<div
+	[ngClass]="{ ' bg-brand-dark-gray': reversed, 'bg-brand-black': !reversed }"
+	class="flex flex-col w-full p-[80px] min-h-[738px] relative"
+>
 	<div class="text-center font-bold text-white text-[30px] mx-auto">
 		مستعدون لإبهارك !
 	</div>

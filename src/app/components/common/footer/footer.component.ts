@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, Input } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { SharedModule } from 'app/shared/shared.module'
 
@@ -9,6 +9,9 @@ import { SharedModule } from 'app/shared/shared.module'
 	templateUrl: './footer.component.html',
 })
 export class FooterComponent {
+	@Input({ required: false })
+	reversed: boolean = false
+
 	scrollToTop(): void {
 		window.scrollTo({
 			top: 0,

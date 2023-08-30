@@ -1,5 +1,6 @@
 <div
-	class="flex flex-col w-full bg-brand-dark-gray p-[80px] relative pb-[150px]"
+	[ngClass]="{ ' bg-brand-dark-gray': !reversed, 'bg-brand-black': reversed }"
+	class="flex flex-col w-full p-[80px] relative pb-[150px]"
 >
 	<div
 		class="grid md:grid-cols-5 gap-[98px] mt-[50px] w-full max-w-screen-lg mx-auto items-start justify-start"
@@ -121,7 +122,7 @@
 				<img
 					src="../../../../assets/app/shared/icons/arrow-up.svg"
 					alt=""
-					class="h-full w-full object-contain"
+					class="object-contain w-full h-full"
 				/>
 			</div>
 		</div>
