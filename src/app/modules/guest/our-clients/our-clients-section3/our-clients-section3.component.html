@@ -1,0 +1,60 @@
+<div class="flex flex-col w-full bg-brand-dark-gray py-[80px] items-center">
+	<div @fadeIn class="text-center font-bold text-white text-[30px] mx-auto">
+		اراء عملائنا
+	</div>
+
+	<div
+		@fadeIn
+		class="text-center font-bold text-white/70 text-[16px] w-[336px] mx-auto"
+	>
+		بروكا ُثريك في صناعة محتوى مرئي بإبداعات فريدة تروق لذهنك وتلامس ذائقتك
+	</div>
+
+	<ul
+		class="grid grid-cols-3 mt-[100px] w-full mx-auto gap-x-[159px] px-[80px]"
+	>
+		<li
+			role="button"
+			(click)="currentPartner = partner"
+			[ngClass]="{
+				'opacity-50': currentPartner !== partner,		
+				'scale-125': currentPartner === partner,
+			}"
+			*ngFor="let partner of OUR_PARTNERS; trackBy: trackByFn"
+			class="flex flex-col items-center justify-center text-center"
+			style="transition: 0.2s cubic-bezier(0.17, 0.67, 0.83, 0.67)"
+		>
+			<img height="90" width="90" [ngSrc]="partner.image" alt="" />
+
+			<div class="text-white mt-[20px] text-[20px] font-bold">
+				{{ partner.name }}
+			</div>
+			<div class="text-white/50 mt-[12px] text-[20px] font-bold">
+				{{ partner.position }}
+			</div>
+
+			<div
+				class="w-full bg-white/10 rounded-full h-[4px] my-[30px] [365px] mx-auto"
+			></div>
+
+			<div
+				class="text-white/50 mt-[12px] text-[20px] font-bold lg:w-[491px]"
+			>
+				{{ partner.about }}
+			</div>
+		</li>
+	</ul>
+
+	<div class="flex mt-[120px] w-full mx-auto justify-center items-center">
+		<div
+			role="button"
+			(click)="currentPartner = partner"
+			[ngClass]="{
+				'bg-white': currentPartner === partner,
+				'bg-white/20': currentPartner !== partner
+			}"
+			class="w-[40px] h-[3px] rounded-full mx-[7.5px]"
+			*ngFor="let partner of OUR_PARTNERS; trackBy: trackByFn"
+		></div>
+	</div>
+</div>

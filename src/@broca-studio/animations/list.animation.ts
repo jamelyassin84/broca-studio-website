@@ -26,7 +26,7 @@ export const listAnimation = trigger('listAnimation', [
 
 				// Stagger effect with a 40ms delay between each element's animation
 				stagger(
-					'40ms',
+					'180ms',
 					animate(
 						'300ms cubic-bezier(.28,-0.86,0,1.11)', // Smooth animation with cubic-bezier easing
 						style({

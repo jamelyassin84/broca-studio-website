@@ -1,5 +1,5 @@
 <div class="overflow-x-auto whitespace-no-wrap hide-scrollbar relative z-[6]">
-	<ul class="flex items-end">
+	<ul [@listAnimation]="SLIDERS.length" class="flex items-end">
 		<li
 			role="button"
 			(mouseenter)="onSlideChange.emit(slide)"

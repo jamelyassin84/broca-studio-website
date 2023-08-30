@@ -6,6 +6,7 @@ import { ContactUsComponent } from 'app/components/common/contact-us/contact-us.
 import { FooterComponent } from 'app/components/common/footer/footer.component'
 import { OurClientsSection1Component } from './our-clients-section1/our-clients-section1.component'
 import { OurClientsSection2Component } from './our-clients-section2/our-clients-section2.component'
+import { OurClientsSection3Component } from './our-clients-section3/our-clients-section3.component'
 
 @Component({
 	selector: 'our-clients',
@@ -16,6 +17,7 @@ import { OurClientsSection2Component } from './our-clients-section2/our-clients-
 		NavbarComponent,
 		OurClientsSection1Component,
 		OurClientsSection2Component,
+		OurClientsSection3Component,
 		ContactUsComponent,
 		FooterComponent,
 	],
