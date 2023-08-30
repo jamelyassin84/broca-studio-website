@@ -1,1 +1,67 @@
-<p>home-section1-whats-app-and-scroll-down works!</p>
+<div class="flex items-center w-full px-[80px] relative z-[2]">
+	<div></div>
+
+	<div class="mx-auto -translate-x-[100px]">
+		<img
+			class="animate-bounce"
+			src="/assets/app/socials/custom-icons.svg"
+			alt=""
+		/>
+	</div>
+
+	<button
+		class="text-white font-bold bg-brand-green rounded-full py-[13px] px-[18px] text-[16px]"
+	>
+		التواصل عبر الواتساب
+	</button>
+
+	<div
+		[animateCSS]="['animate__slideInDownBig', 'animate__faster']"
+		class="absolute grid w-screen grid-cols-4 z-[1] animate-pulse -bottom-20 brightness-150"
+	>
+		<div>
+			<img
+				class="scale-y-[-1] -translate-x-[60%] xl:-translate-x-[100%] translate-y-[100%]"
+				src="/assets/app/water-mark/arrow-up-sm.svg"
+				alt=""
+			/>
+			<img src="/assets/app/water-mark/arrow-down-lg.svg" alt="" />
+		</div>
+
+		<div>
+			<img
+				class="scale-y-[-1]"
+				src="/assets/app/water-mark/arrow-down-lg.svg"
+				alt=""
+			/>
+			<img
+				class="-translate-x-[60%] xl-translate-x-[100%] -translate-y-[100%]"
+				src="/assets/app/water-mark/arrow-up-sm.svg"
+				alt=""
+			/>
+		</div>
+
+		<div>
+			<img
+				class="scale-y-[-1] -translate-x-[100%] translate-y-[100%]"
+				src="/assets/app/water-mark/arrow-up-sm.svg"
+				alt=""
+			/>
+			<img src="/assets/app/water-mark/arrow-down-lg.svg" alt="" />
+		</div>
+
+		<div>
+			<img
+				class="scale-y-[-1]"
+				src="/assets/app/water-mark/arrow-down-lg.svg"
+				alt=""
+			/>
+
+			<img
+				class="-translate-x-[100%] -translate-y-[100%]"
+				src="/assets/app/water-mark/arrow-up-sm.svg"
+				alt=""
+			/>
+		</div>
+	</div>
+</div>

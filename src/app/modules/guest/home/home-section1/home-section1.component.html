@@ -12,11 +12,25 @@
 
 	<div class="absolute">
 		<home-section1-navigation
-			*ngIf="showNavigation"
 			class="relative z-[6]"
 			[currentSlide]="currentSlide"
 			(onSlideChange)="currentSlide = $event"
+			*ngIf="showNavigation && !(currentSlide$ | async)"
 		/>
+
+		<div
+			*ngIf="currentSlide$ | async"
+			[animateCSS]="['animate__slideInUp', 'animate__faster']"
+			class="text-center relative z-[6] mx-auto"
+		>
+			<div @zoomIn class="text-white font-bold text-[40px]">
+				{{ currentSlide.headline }}
+			</div>
+
+			<div class="max-w-[585px] text-white/70 text-[16px] mt-[16px]">
+				{{ currentSlide.subHeadline }}
+			</div>
+		</div>
 
 		<div
 			@zoomIn
@@ -31,7 +45,13 @@
 		</div>
 	</div>
 
+	<home-section1-whats-app-and-scroll-down
+		class="absolute bottom-[81px] z-10 flex items-center text-white w-full mx-auto"
+		*ngIf="currentSlide$ | async"
+	/>
+
 	<div
+		*ngIf="!(currentSlide$ | async)"
 		class="absolute bottom-[81px] z-10 flex items-center text-white w-full px-[93px] max-w-screen-lg mx-auto"
 	>
 		<home-section1-pages [currentSlide]="currentSlide" />

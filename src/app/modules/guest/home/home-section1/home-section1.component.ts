@@ -9,22 +9,32 @@ import { HomeSection1PagesComponent } from './components/home-section1-pages/hom
 import { HomeSection1BackgroundComponent } from './components/home-section1-background/home-section1-background.component'
 import { HomeSection1NavigationComponent } from './components/home-section1-navigation/home-section1-navigation.component'
 import { HomeSection1OverlayComponent } from './components/home-section1-overlay/home-section1-overlay.component'
+import { HomeSection1WhatsAppAndScrollDownComponent } from './components/home-section1-whats-app-and-scroll-down/home-section1-whats-app-and-scroll-down.component'
+import { SliderService } from 'app/app-core/providers/slider.service'
+
+const standaloneComponents = [
+	HomeSection1SocialsComponent,
+	HomeSection1PagesComponent,
+	HomeSection1OverlayComponent,
+	HomeSection1NavigationComponent,
+	HomeSection1BackgroundComponent,
+
+	// disappearing components
+	HomeSection1WhatsAppAndScrollDownComponent,
+]
 
 @Component({
 	selector: 'home-section1',
 	standalone: true,
 	animations: [...dbwAnimations],
 	templateUrl: './home-section1.component.html',
-	imports: [
-		SharedModule,
-		HomeSection1SocialsComponent,
-		HomeSection1PagesComponent,
-		HomeSection1OverlayComponent,
-		HomeSection1NavigationComponent,
-		HomeSection1BackgroundComponent,
-	],
+	imports: [SharedModule, ...standaloneComponents],
 })
 export class HomeSection1Component {
+	constructor(private readonly _sliderService: SliderService) {}
+
+	readonly currentSlide$ = this._sliderService.currentSlide$
+
 	currentSlide = SLIDERS[0]
 
 	showNavigation: boolean = false

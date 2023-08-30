@@ -32,7 +32,7 @@ const standaloneComponents = [
 	selector: 'home',
 	standalone: true,
 	templateUrl: './home.component.html',
-	animations:[...dbwAnimations],
+	animations: [...dbwAnimations],
 	imports: [SharedModule, ...standaloneComponents],
 })
 export class HomeComponent {
