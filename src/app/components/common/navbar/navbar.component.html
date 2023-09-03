@@ -40,7 +40,7 @@
 				}"
 				*ngFor="let nav of NAVBAR_NAVIGATION; trackBy: trackByFn"
 			>
-				{{ nav.name }}
+				{{ nav.name | auto_translate }}
 			</li>
 		</ul>
 

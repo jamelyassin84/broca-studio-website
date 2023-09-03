@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core'
 import { CommonModule, NgOptimizedImage } from '@angular/common'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { RouterModule } from '@angular/router'
 import { appStateModules } from './states/app.state.module'
 import { angularMaterialModules } from './angular-material/angular-material-modules'
@@ -20,7 +19,8 @@ import { previewComponents } from './components/preview-components'
 import { AppEffects } from './states/app.effects'
 import { globalForms } from './components/global-forms'
 import { globalComponents } from './components/global-components'
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { HttpClientModule } from '@angular/common/http'
+import { TranslateModule } from '@ngx-translate/core'
 
 const pipes = [...globalPipes, ...sharedPipes]
 
@@ -42,6 +42,7 @@ const modules = [
 	HttpClientModule,
 	NgOptimizedImage,
 	ReactiveFormsModule,
+	TranslateModule.forChild(),
 
 	...AppEffects,
 	...appStateModules,
@@ -57,11 +58,6 @@ const modules = [
 			provide: MAT_DATE_RANGE_SELECTION_STRATEGY,
 			useClass: DefaultMatCalendarRangeStrategy,
 		},
-		// {
-		// 	provide: HTTP_INTERCEPTORS,
-		// 	useClass: ErrorInterceptor,
-		// 	multi: true,
-		// },
 	],
 })
 export class SharedModule {}

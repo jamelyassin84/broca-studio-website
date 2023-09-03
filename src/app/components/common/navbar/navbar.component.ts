@@ -57,6 +57,7 @@ export class NavbarComponent {
 	currentNavigation = undefined
 
 	setLanguage(language: LanguageEnum | 'en' | 'ar') {
+		location.reload()
 		this._languageService.setLanguage(language as any)
 	}
 

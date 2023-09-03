@@ -25,7 +25,7 @@ export const NAVBAR_NAVIGATION = [
 
 	{
 		id: 5,
-		name: 'الرئيسية',
+		name: 'home',
 		link: '/home',
 	},
 ].reverse()
