@@ -7,6 +7,7 @@ import { SharedModule } from 'app/shared/shared.module'
 import { Observable, map, tap } from 'rxjs'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { SliderService } from 'app/app-core/providers/slider.service'
+import { ContactUsService } from 'app/app-core/providers/contact-us.service'
 
 @Component({
 	selector: 'navbar',
@@ -20,6 +21,7 @@ export class NavbarComponent {
 		private readonly _router: Router,
 		private readonly _mediaService: MediaService,
 		private readonly _sliderService: SliderService,
+		private readonly _contactUsService: ContactUsService,
 	) {
 		this._router.events
 			.pipe(
@@ -48,6 +50,10 @@ export class NavbarComponent {
 	readonly NAVBAR_NAVIGATION = NAVBAR_NAVIGATION
 
 	currentNavigation = undefined
+
+	focusContactUsFirstInput(): void {
+		this._contactUsService.focus$.next()
+	}
 
 	trackByFn(index: number, item: any): any {
 		return item.id || index

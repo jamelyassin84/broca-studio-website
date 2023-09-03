@@ -9,7 +9,7 @@
 				: false,
 	
 	}"
-	class="w-screen fixed px-[90px] pt-[40px] z-[20]"
+	class="w-screen fixed px-[90px] pt-[40px] z-[9999]"
 >
 	<div
 		class="[90px] pt-[6px] border-b-white/10 border-b w-full flex items-center max-w-screen-lg mx-auto"
@@ -51,6 +51,7 @@
 			</button>
 
 			<button
+				(click)="focusContactUsFirstInput()"
 				class="text-white font-bold w-[214px] h-[53px] bg-brand-sky rounded-l-full rounded-r-full mx-[7px]"
 			>
 				تواصل معنا

@@ -4,16 +4,16 @@
 			role="button"
 			(click)="currentSlide$.next(slide)"
 			(mouseenter)="onSlideChange.emit(slide)"
-			class="font-bold mr-[50px] flex flex-col"
+			class="font-bold mr-[50px] flex flex-col md:hover:text-white"
 			[ngClass]="{
-				'text-white': currentSlide.id === slide.id,
+				'text-white': (currentSlide$ | async)?.id === slide.id,
 				'text-outline text-black/50 font-black':
-					currentSlide.id !== slide.id
+					(currentSlide$ | async)?.id !== slide.id
 			}"
 			*ngFor="let slide of SLIDERS; trackBy: trackByFn"
 		>
 			<div
-				*ngIf="currentSlide.id === slide.id"
+				*ngIf="(currentSlide$ | async)?.id === slide.id"
 				class="text-[16px] font-normal"
 			>
 				{{ slide.subTitle }} ({{ slide.id }})
