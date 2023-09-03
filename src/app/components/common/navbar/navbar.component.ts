@@ -8,6 +8,8 @@ import { Observable, map, tap } from 'rxjs'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { SliderService } from 'app/app-core/providers/slider.service'
 import { ContactUsService } from 'app/app-core/providers/contact-us.service'
+import { LanguageService } from 'app/app-core/providers/language.service'
+import { LanguageEnum } from 'app/app-core/enums/language-enum'
 
 @Component({
 	selector: 'navbar',
@@ -21,6 +23,7 @@ export class NavbarComponent {
 		private readonly _router: Router,
 		private readonly _mediaService: MediaService,
 		private readonly _sliderService: SliderService,
+		private readonly _languageService: LanguageService,
 		private readonly _contactUsService: ContactUsService,
 	) {
 		this._router.events
@@ -38,6 +41,8 @@ export class NavbarComponent {
 			.subscribe()
 	}
 
+	readonly language$ = this._languageService.language$
+
 	readonly currentSlide$ = this._sliderService.currentSlide$
 
 	readonly isInHome$ = this._router.events.pipe(
@@ -50,6 +55,10 @@ export class NavbarComponent {
 	readonly NAVBAR_NAVIGATION = NAVBAR_NAVIGATION
 
 	currentNavigation = undefined
+
+	setLanguage(language: LanguageEnum | 'en' | 'ar') {
+		this._languageService.setLanguage(language as any)
+	}
 
 	focusContactUsFirstInput(): void {
 		this._contactUsService.focus$.next()

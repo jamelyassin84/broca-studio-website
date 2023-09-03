@@ -1,4 +1,5 @@
 <div
+	*ngIf="language$ | async as language"
 	[ngClass]="{
 		'bg-transparent backdrop-blur-0':
 			(isInHome$ | async) || !(scrollTop$ | async) ,
@@ -45,9 +46,10 @@
 
 		<div class="flex items-center -translate-y-5">
 			<button
+				(click)="setLanguage(language === 'en' ? 'ar' : 'en')"
 				class="border border-white/50 rounded-full h-[53px] w-[53px] flex items-center justify-center text-white mx-[7px] hover:bg-white/20"
 			>
-				EN
+				{{ language === 'en' ? 'AR' : 'EN' }}
 			</button>
 
 			<button

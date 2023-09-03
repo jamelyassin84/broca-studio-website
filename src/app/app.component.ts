@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router'
 import { MediaService } from '@broca-studio/utilities/media.service'
 import { BreakPoint } from '@broca-studio/models/core.model'
 import { Observable, fromEvent } from 'rxjs'
+import { LanguageService } from './app-core/providers/language.service'
 
 @Component({
 	selector: 'app-root',
@@ -12,7 +13,10 @@ import { Observable, fromEvent } from 'rxjs'
 	templateUrl: './app.component.html',
 })
 export class AppComponent {
-	constructor(private _mediaService: MediaService) {}
+	constructor(
+		private _mediaService: MediaService,
+		private _languageService: LanguageService,
+	) {}
 
 	@HostListener('window:resize')
 	onResize() {
@@ -28,4 +32,8 @@ export class AppComponent {
 		this._mediaService.breakpoints$
 
 	readonly scrollTop$: Observable<number> = this._mediaService.getScrollTop()
+
+	ngOnInit(): void {
+		this._languageService.initLanguage()
+	}
 }
