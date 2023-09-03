@@ -1,31 +1,13 @@
-<div class="flex items-center mr-auto">
-	<div class="mx-[25px]">تابعنا علي :</div>
+<ng-container *ngIf="language$ | async as language">
+	<div class="flex items-center w-full">
+		<div class="mx-[25px]">تابعنا علي :</div>
 
-	<div
-		role="button"
-		class="w-[50px] h-[50px] rounded-full border border-white/20 flex items-center mx-[3.5px] justify-center md:hover:bg-white/10 active:opacity-80"
-	>
-		<img src="../../../../../assets/app/socials/facebook.svg" alt="" />
+		<div
+			role="button"
+			*ngFor="let social of SOCIALS"
+			class="w-[50px] h-[50px] rounded-full border border-white/20 flex items-center mx-[3.5px] justify-center md:hover:bg-white/10 active:opacity-80"
+		>
+			<img [src]="social.image" alt="" />
+		</div>
 	</div>
-
-	<div
-		role="button"
-		class="w-[50px] h-[50px] rounded-full border border-white/20 flex items-center mx-[3.5px] justify-center md:hover:bg-white/10 active:opacity-80"
-	>
-		<img src="../../../../../assets/app/socials/instagram.svg" alt="" />
-	</div>
-
-	<div
-		role="button"
-		class="w-[50px] h-[50px] rounded-full border border-white/20 flex items-center mx-[3.5px] justify-center md:hover:bg-white/10 active:opacity-80"
-	>
-		<img src="../../../../../assets/app/socials/twitter.svg" alt="" />
-	</div>
-
-	<div
-		role="button"
-		class="w-[50px] h-[50px] rounded-full border border-white/20 flex items-center mx-[3.5px] justify-center md:hover:bg-white/10 active:opacity-80"
-	>
-		<img src="../../../../../assets/app/socials/linked-in.svg" alt="" />
-	</div>
-</div>
+</ng-container>

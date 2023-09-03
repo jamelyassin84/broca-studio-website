@@ -11,6 +11,7 @@ import { HomeSection1NavigationComponent } from './components/home-section1-navi
 import { HomeSection1OverlayComponent } from './components/home-section1-overlay/home-section1-overlay.component'
 import { HomeSection1WhatsAppAndScrollDownComponent } from './components/home-section1-whats-app-and-scroll-down/home-section1-whats-app-and-scroll-down.component'
 import { SliderService } from 'app/app-core/providers/slider.service'
+import { LanguageService } from 'app/app-core/providers/language.service'
 
 const standaloneComponents = [
 	HomeSection1SocialsComponent,
@@ -31,7 +32,12 @@ const standaloneComponents = [
 	imports: [SharedModule, ...standaloneComponents],
 })
 export class HomeSection1Component {
-	constructor(private readonly _sliderService: SliderService) {}
+	constructor(
+		private readonly _sliderService: SliderService,
+		private readonly _languageService: LanguageService,
+	) {}
+
+	readonly language$ = this._languageService.language$
 
 	readonly currentSlide$ = this._sliderService.currentSlide$
 

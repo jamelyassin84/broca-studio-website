@@ -3,7 +3,7 @@ import {
 	importProvidersFrom,
 	isDevMode,
 } from '@angular/core'
-import { provideRouter } from '@angular/router'
+import { PreloadAllModules, RouterModule, provideRouter } from '@angular/router'
 
 import { routes } from './app.routes'
 import { provideClientHydration } from '@angular/platform-browser'
@@ -28,11 +28,16 @@ export const appConfig: ApplicationConfig = {
 		provideEffects(),
 		provideAnimations(),
 		provideRouterStore(),
-		provideRouter(routes),
 		// provideClientHydration(),
 		provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
 		importProvidersFrom(
 			HttpClientModule,
+			RouterModule.forRoot(routes, {
+				preloadingStrategy: PreloadAllModules,
+				onSameUrlNavigation: 'reload',
+				scrollPositionRestoration: 'top',
+			}),
+
 			TranslateModule.forRoot({
 				loader: {
 					deps: [HttpClient],

@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core'
-import { CommonModule } from '@angular/common'
 import { SharedModule } from 'app/shared/shared.module'
+import { LanguageService } from 'app/app-core/providers/language.service'
+import { SOCIALS } from 'app/app-core/constants/socials'
 
 @Component({
 	selector: 'app-footer',
@@ -9,6 +10,12 @@ import { SharedModule } from 'app/shared/shared.module'
 	templateUrl: './footer.component.html',
 })
 export class FooterComponent {
+	constructor(private readonly _languageService: LanguageService) {}
+
+	readonly language$ = this._languageService.language$
+
+	readonly SOCIALS = SOCIALS
+
 	@Input({ required: false })
 	reversed: boolean = false
 
@@ -17,5 +24,9 @@ export class FooterComponent {
 			top: 0,
 			behavior: 'smooth',
 		})
+	}
+
+	trackByFn(index: number, item: any): any {
+		return item.id || index
 	}
 }

@@ -1,31 +1,31 @@
 export const NAVBAR_NAVIGATION = [
 	{
 		id: 1,
-		name: 'عملائنا',
-		link: '/our-clients',
+		name: 'home',
+		link: '/home',
 	},
 
 	{
 		id: 2,
-		name: 'خدمتنا',
-		link: '/our-services',
+		name: 'about-us',
+		link: '/about-us',
 	},
 
 	{
 		id: 3,
-		name: 'اعمالنا',
+		name: 'our-work',
 		link: '/our-work',
 	},
 
 	{
 		id: 4,
-		name: 'الشركة',
-		link: '/about-us',
+		name: 'our-services',
+		link: '/our-services',
 	},
 
 	{
 		id: 5,
-		name: 'home',
-		link: '/home',
+		name: 'our-clients',
+		link: '/our-clients',
 	},
-].reverse()
+]

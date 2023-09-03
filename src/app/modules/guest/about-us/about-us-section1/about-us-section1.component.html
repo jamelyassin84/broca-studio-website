@@ -1,76 +1,88 @@
-<div class="flex flex-col w-full bg-black p-[80px] mt-30">
-	<div @fadeIn class="text-center font-bold text-white text-[30px] mx-auto">
-		ماذا نقدم في بروكا ؟!
-	</div>
+<ng-container *ngIf="language$ | async as language">
+	<div class="flex flex-col w-full bg-black p-[80px] mt-30">
+		<div
+			@fadeIn
+			class="text-center font-bold text-white text-[30px] mx-auto"
+		>
+			ماذا نقدم في بروكا ؟!
+		</div>
 
-	<div
-		@fadeIn
-		class="text-center font-bold text-white/70 text-[16px] w-[578px] mx-auto"
-	>
-		شركة بروكا للاستشارات والحلول الإبداعية تملك من خلال فريق عملها خبرة
-		تراكمية تزيد عن ١٥ سنة في مجالات تطوير الأعمال والتسويق وصناعة المحتوى
-		الإبداعي والإنتاج الفني وصناعة الألعاب
-	</div>
+		<div
+			@fadeIn
+			class="text-center font-bold text-white/70 text-[16px] w-[578px] mx-auto"
+		>
+			شركة بروكا للاستشارات والحلول الإبداعية تملك من خلال فريق عملها خبرة
+			تراكمية تزيد عن ١٥ سنة في مجالات تطوير الأعمال والتسويق وصناعة
+			المحتوى الإبداعي والإنتاج الفني وصناعة الألعاب
+		</div>
 
-	<div
-		class="grid md:grid-cols-2 gap-[32px] mt-[50px] w-full max-w-screen-lg mx-auto"
-	>
-		<div [@listAnimation]="ABOUT_SERVICES.length" class="w-full">
-			<div
-				[ngClass]="{ 'mb-[30px]': index !== ABOUT_SERVICES.length - 1 }"
-				*ngFor="
-					let service of ABOUT_SERVICES;
-					trackBy: trackByFn;
-					let index = index
-				"
-				class="w-full flex items-center px-[25px] py-[34px] rounded-[20px] bg-brand-card-dark"
-			>
-				<div class="flex-none">
-					<img
-						height="81"
-						width="72"
-						class="object-contain bg-brand-card-dark rounded-full"
-						[ngSrc]="service.icon"
-						alt=""
-					/>
-				</div>
-
-				<div class="mr-[20px]">
-					<div class="text-white font-bold text-[18px]">
-						{{ service.title }}
+		<div
+			class="grid md:grid-cols-2 gap-[32px] mt-[50px] w-full max-w-screen-lg mx-auto"
+		>
+			<div [@listAnimation]="ABOUT_SERVICES.length" class="w-full">
+				<div
+					[ngClass]="{
+						'mb-[30px]': index !== ABOUT_SERVICES.length - 1
+					}"
+					*ngFor="
+						let service of ABOUT_SERVICES;
+						trackBy: trackByFn;
+						let index = index
+					"
+					class="w-full flex items-center px-[25px] py-[34px] rounded-[20px] bg-brand-card-dark"
+				>
+					<div class="flex-none">
+						<img
+							height="81"
+							width="72"
+							class="object-contain rounded-full bg-brand-card-dark"
+							[ngSrc]="service.icon"
+							alt=""
+						/>
 					</div>
 
-					<div class="text-white/50 font-light text-[16px]">
-						{{ service.description }}
-					</div>
+					<div
+						[ngClass]="{
+							'mr-[20px]': language === 'ar',
+							'ml-[20px]': language === 'en'
+						}"
+					>
+						<div class="text-white font-bold text-[18px]">
+							{{ service.title }}
+						</div>
 
-					<div class="grid grid-cols-2 text-white mt-[20px]">
-						<div
-							class="text-[16px] flex items-center"
-							*ngFor="
-								let feature of service.features;
-								trackBy: trackByFn
-							"
-						>
-							<img
-								class="ml-[9px]"
-								height="24"
-								width="24"
-								ngSrc="../../../../../assets/app/about-us/icons/tick-circle.svg"
-								alt=""
-							/>
+						<div class="text-white/50 font-light text-[16px]">
+							{{ service.description }}
+						</div>
 
-							{{ feature }}
+						<div class="grid grid-cols-2 text-white mt-[20px]">
+							<div
+								class="text-[16px] flex items-center"
+								*ngFor="
+									let feature of service.features;
+									trackBy: trackByFn
+								"
+							>
+								<img
+									class="ml-[9px]"
+									height="24"
+									width="24"
+									ngSrc="../../../../../assets/app/about-us/icons/tick-circle.svg"
+									alt=""
+								/>
+
+								{{ feature }}
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 
-		<img
-			class="h-full object-contain rounded-2xl"
-			src="../../../../../assets/app/about-us/bg-1.png"
-			alt=""
-		/>
+			<img
+				class="object-contain h-full rounded-2xl"
+				src="../../../../../assets/app/about-us/bg-1.png"
+				alt=""
+			/>
+		</div>
 	</div>
-</div>
+</ng-container>

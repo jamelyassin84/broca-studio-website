@@ -15,13 +15,13 @@ import { SharedModule } from 'app/shared/shared.module'
 export class HomeSection1NavigationComponent {
 	constructor(private readonly _sliderService: SliderService) {}
 
-	readonly currentSlide$ = this._sliderService.currentSlide$
-
 	@Output()
 	onSlideChange = new EventEmitter<Slider>()
 
 	@Input({ required: true })
 	currentSlide: Slider
+
+	readonly currentSlide$ = this._sliderService.currentSlide$
 
 	readonly SLIDERS = SLIDERS
 

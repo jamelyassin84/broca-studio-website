@@ -1,16 +1,6 @@
 <div
 	*ngIf="language$ | async as language"
-	[ngClass]="{
-		'bg-transparent backdrop-blur-0':
-			(isInHome$ | async) || !(scrollTop$ | async) ,
-		'bg-black/10 backdrop-blur-md':
-			!(isInHome$ | async) ||
-			((isInHome$ | async) && (scrollTop$ | async) > 15 * 190)
-				? true
-				: false,
-	
-	}"
-	class="w-screen fixed px-[90px] pt-[40px] z-[9999]"
+	class="w-screen fixed px-[90px] pt-[40px] z-[9999] bg-transparent backdrop-blur-lg"
 >
 	<div
 		class="[90px] pt-[6px] border-b-white/10 border-b w-full flex items-center max-w-screen-lg mx-auto"

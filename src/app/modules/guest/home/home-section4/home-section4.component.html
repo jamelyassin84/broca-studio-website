@@ -1,55 +1,63 @@
-<div
-	class="flex w-full bg-brand-dark-gray"
-	[animateCSS]="['animate__fadeInUpBig', 'animate__faster']"
->
+<ng-container *ngIf="language$ | async as language">
 	<div
-		class="gap-x-[37px] w-full p-[80px] grid md:grid-cols-2 max-w-screen-lg mx-auto"
+		class="flex w-full bg-brand-dark-gray"
+		[animateCSS]="['animate__fadeInUpBig', 'animate__faster']"
 	>
-		<div class="text-white">
-			<div class="font-bold text-[30px] mb-[16px]">لعبة التنين</div>
+		<div
+			class="gap-x-[37px] w-full p-[80px] grid md:grid-cols-2 max-w-screen-lg mx-auto"
+		>
+			<div class="text-white">
+				<div class="font-bold text-[30px] mb-[16px]">لعبة التنين</div>
 
-			<div class="text-white/70 text-[16px] mb-[54px]">
-				مرحبًا بك في دراغولانديا، وهي جزيرة سرّية يعيش فيها مئات
-				التنانين حيث تنتظرك هناك مغامرات لا تُحصى. هل لديك القدرات التي
-				تجعلك مدرب تنانين؟عِش تجربة مدينة التنانين الخيالية. كوّن فريقًا
-				من التنانين الأسطورية في عالم سحري، واحرص على تربيتها وتدريبها
-				جيدًا لكي تتقن استخدام قواها في معارك ملحمية عبر جُزر وعوالم
-				مختلفة.
+				<div class="text-white/70 text-[16px] mb-[54px]">
+					مرحبًا بك في دراغولانديا، وهي جزيرة سرّية يعيش فيها مئات
+					التنانين حيث تنتظرك هناك مغامرات لا تُحصى. هل لديك القدرات
+					التي تجعلك مدرب تنانين؟عِش تجربة مدينة التنانين الخيالية.
+					كوّن فريقًا من التنانين الأسطورية في عالم سحري، واحرص على
+					تربيتها وتدريبها جيدًا لكي تتقن استخدام قواها في معارك
+					ملحمية عبر جُزر وعوالم مختلفة.
+				</div>
+
+				<div
+					*ngFor="
+						let feature of CINEMATIC_FEATURES;
+						trackBy: trackByFn
+					"
+					class="flex items-center text-white mb-[28px]"
+				>
+					<img
+						alt=""
+						width="24"
+						height="24"
+						[ngClass]="{
+							'ml-3': language === 'ar',
+							'mr-3': language === 'en'
+						}"
+						src="/assets/app/home/home-section-4/icons/tick-circle.svg"
+					/>
+
+					{{ feature }}
+				</div>
 			</div>
 
-			<div
-				*ngFor="let feature of CINEMATIC_FEATURES; trackBy: trackByFn"
-				class="flex items-center text-white mb-[28px]"
-			>
+			<div class="relative flex items-center justify-center w-full">
+				<button class="absolute active:opacity:80">
+					<img
+						alt=""
+						width="74"
+						height="74"
+						src="/assets/app/home/home-section-4/icons/play.svg"
+					/>
+				</button>
+
 				<img
 					alt=""
-					width="24"
-					height="24"
-					class="ml-3"
-					src="../../../../../assets/app/home/home-section-4/icons/tick-circle.svg"
+					width="593"
+					height="429"
+					class="rounded-[20px]"
+					ngSrc="/assets/app/home/home-section-4/first-section-bg.png"
 				/>
-
-				{{ feature }}
 			</div>
-		</div>
-
-		<div class="relative flex items-center justify-center w-full">
-			<button class="absolute active:opacity:80">
-				<img
-					alt=""
-					width="74"
-					height="74"
-					src="../../../../../assets/app/home/home-section-4/icons/play.svg"
-				/>
-			</button>
-
-			<img
-				alt=""
-				width="593"
-				height="429"
-				class="rounded-[20px]"
-				ngSrc="../../../../../assets/app/home/home-section-4/first-section-bg.png"
-			/>
 		</div>
 	</div>
-</div>
+</ng-container>

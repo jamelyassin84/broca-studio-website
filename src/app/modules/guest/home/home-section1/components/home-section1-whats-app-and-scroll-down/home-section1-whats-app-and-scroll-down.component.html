@@ -1,31 +1,38 @@
-<div
-	class="flex items-center w-full px-[80px] relative z-[2] max-w-screen-xl mx-auto"
->
-	<div></div>
-
-	<div class="mx-auto -translate-x-[100px]">
-		<img
-			class="animate-bounce"
-			src="/assets/app/socials/custom-icons.svg"
-			alt=""
-		/>
-	</div>
-
-	<button
-		class="relative active:opacity-70 z-[999] text-white font-bold md:hover:bg-lime-700 active:opacity:20 bg-brand-green rounded-full py-[13px] px-[18px] text-[16px] flex items-center justify-center"
-	>
-		<img
-			alt=""
-			width="24"
-			height="24"
-			ngSrc="/assets/app/socials/whats-app.svg"
-			class="ml-6"
-		/>
-
-		التواصل عبر الواتساب
-	</button>
-
+<ng-container *ngIf="language$ | async as language">
 	<div
+		class="flex items-center w-full px-[80px] relative z-[2] max-w-screen-xl mx-auto"
+	>
+		<div></div>
+
+		<div
+			[ngClass]="{
+				'-translate-x-[100px]': language === 'ar',
+				'translate-x-[100px]': language === 'en'
+			}"
+			class="mx-auto"
+		>
+			<img
+				class="animate-bounce"
+				src="/assets/app/socials/custom-icons.svg"
+				alt=""
+			/>
+		</div>
+
+		<button
+			class="relative active:opacity-70 z-[999] text-white font-bold md:hover:bg-lime-700 active:opacity:20 bg-brand-green rounded-full py-[13px] px-[18px] text-[16px] flex items-center justify-center"
+		>
+			<img
+				alt=""
+				width="24"
+				height="24"
+				class="ml-6"
+				ngSrc="/assets/app/socials/whats-app.svg"
+			/>
+
+			التواصل عبر الواتساب
+		</button>
+
+		<!-- <div
 		[animateCSS]="['animate__slideInDownBig', 'animate__faster']"
 		class="absolute grid w-screen grid-cols-4 z-[1] animate-pulse -bottom-20 brightness-150 -left-[20%]"
 	>
@@ -73,5 +80,6 @@
 				alt=""
 			/>
 		</div>
+	</div> -->
 	</div>
-</div>
+</ng-container>
