@@ -4,7 +4,6 @@ import { ContactUsComponent } from 'app/components/common/contact-us/contact-us.
 import { FooterComponent } from 'app/components/common/footer/footer.component'
 import { NavbarComponent } from 'app/components/common/navbar/navbar.component'
 import { ResponsiveNavbarComponent } from 'app/components/common/responsive-navbar/responsive-navbar.component'
-import { HomeLandingComponent } from './home-splash/home-splash.component'
 import { HomeSection1Component } from './home-section1/home-section1.component'
 import { HomeSection2Component } from './home-section2/home-section2.component'
 import { HomeSection3Component } from './home-section3/home-section3.component'
@@ -20,7 +19,6 @@ const standaloneComponents = [
 	NavbarComponent,
 	ResponsiveNavbarComponent,
 
-	HomeLandingComponent,
 	HomeSection1Component,
 	HomeSection2Component,
 	HomeSection3Component,

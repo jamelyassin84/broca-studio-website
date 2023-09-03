@@ -1,0 +1,35 @@
+<div
+	@fadeIn
+	@slideOutTop
+	[animateCSS]="['animate__fadeOutUpBig', 'animate__delay-4s']"
+	class="fixed flex flex-col items-center justify-center w-screen h-screen z-[999999] bg-black"
+>
+	<div
+		[animateCSS]="['animate__fadeOutUpBig', 'animate__delay-4s']"
+		class="w-full max-w-screen-lg mx-auto relative z-[13] text-center flex flex-col"
+	>
+		<div>
+			<img
+				alt=""
+				height="136"
+				priority="high"
+				width="235.084"
+				ngSrc="/assets/app/logo.svg"
+				class="object-cover mx-auto z-[11] mb-9"
+				[animateCSS]="['animate__fadeInDownBig', 'animate__delay-1s']"
+			/>
+		</div>
+
+		<div
+			[animateCSS]="['animate__fadeInUp']"
+			class="w-full font-bold text-white text-7xl"
+		>
+			<span [@changeColorAnimation]="changeColorState"
+				>نبتكر لأجلك نعمل لأجلك</span
+			>
+			<span class="ml-2" [@fadeInTextAnimation]="fadeInTextState">
+				بروكا في خدمتك</span
+			>
+		</div>
+	</div>
+</div>

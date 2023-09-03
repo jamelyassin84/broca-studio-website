@@ -5,11 +5,13 @@ import { MediaService } from '@broca-studio/utilities/media.service'
 import { BreakPoint } from '@broca-studio/models/core.model'
 import { Observable, fromEvent } from 'rxjs'
 import { LanguageService } from './app-core/providers/language.service'
+import { SharedModule } from './shared/shared.module'
+import { SplashComponent } from './components/common/splash/splash.component'
 
 @Component({
 	selector: 'app-root',
 	standalone: true,
-	imports: [CommonModule, RouterOutlet],
+	imports: [SharedModule, RouterOutlet, SplashComponent],
 	templateUrl: './app.component.html',
 })
 export class AppComponent {
