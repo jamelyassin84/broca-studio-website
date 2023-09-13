@@ -61,7 +61,6 @@ export class HomeSection1Component {
 		const timeOut = setTimeout(() => {
 			this.showNavigation = true
 		}, 4500)
-		this.showNavigation = true
 
 		this.timeOuts.push(timeOut)
 	}
