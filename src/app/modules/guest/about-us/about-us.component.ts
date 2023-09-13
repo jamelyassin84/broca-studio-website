@@ -1,3 +1,4 @@
+import { ResponsiveNavbarComponent } from 'app/components/common/responsive-navbar/responsive-navbar.component'
 import { Component } from '@angular/core'
 import { SharedModule } from 'app/shared/shared.module'
 import { NavbarComponent } from 'app/components/common/navbar/navbar.component'
@@ -19,6 +20,7 @@ const standaloneComponents = [
 	AboutUsSection5Component,
 	ContactUsComponent,
 	FooterComponent,
+	ResponsiveNavbarComponent,
 ]
 
 @Component({

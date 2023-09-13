@@ -1,14 +1,22 @@
-<div class="overflow-x-auto whitespace-no-wrap hide-scrollbar relative z-[6]">
-	<ul [@listAnimation]="SLIDERS.length" class="flex items-end">
+<div
+	*ngIf="language$ | async as language"
+	class="overflow-x-auto whitespace-no-wrap hide-scrollbar relative z-[6]"
+>
+	<ul
+		[@listAnimation]="SLIDERS.length"
+		class="flex flex-col md:items-end md:flex-row"
+	>
 		<li
 			role="button"
 			(click)="currentSlide$.next(slide)"
 			(mouseenter)="onSlideChange.emit(slide)"
-			class="font-bold mr-[50px] flex flex-col"
+			class="font-bold mr-[50px] flex flex-col mb-4 md:mb-0"
 			[ngClass]="{
 				'text-white': currentSlide.id === slide.id,
 				'text-outline text-black/50 font-black':
-					currentSlide.id !== slide.id
+					currentSlide.id !== slide.id,
+					'text-left': language === 'en',
+					'text-right': language === 'ar',
 			}"
 			*ngFor="let slide of SLIDERS; trackBy: trackByFn"
 		>

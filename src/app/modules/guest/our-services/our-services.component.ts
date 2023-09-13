@@ -6,6 +6,7 @@ import { ContactUsComponent } from 'app/components/common/contact-us/contact-us.
 import { FooterComponent } from 'app/components/common/footer/footer.component'
 import { OurServicesSection1Component } from './our-services-section1/our-services-section1.component'
 import { OurServicesSection2Component } from './our-services-section2/our-services-section2.component'
+import { ResponsiveNavbarComponent } from 'app/components/common/responsive-navbar/responsive-navbar.component'
 
 @Component({
 	selector: 'our-services',
@@ -18,6 +19,7 @@ import { OurServicesSection2Component } from './our-services-section2/our-servic
 		FooterComponent,
 		OurServicesSection2Component,
 		OurServicesSection1Component,
+		ResponsiveNavbarComponent,
 	],
 	templateUrl: './our-services.component.html',
 })
