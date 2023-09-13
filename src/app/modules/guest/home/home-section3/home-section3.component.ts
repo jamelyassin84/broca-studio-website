@@ -2,11 +2,13 @@ import { Component } from '@angular/core'
 import { MICRO_SERVICES } from 'app/app-core/constants/micro-service'
 import { SharedModule } from 'app/shared/shared.module'
 import { LanguageService } from 'app/app-core/providers/language.service'
+import { dbwAnimations } from '@broca-studio/animations/animation.api'
 
 @Component({
 	selector: 'home-section3',
 	standalone: true,
 	imports: [SharedModule],
+	animations: [...dbwAnimations],
 	templateUrl: './home-section3.component.html',
 })
 export class HomeSection3Component {
