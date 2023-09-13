@@ -10,13 +10,13 @@
 			role="button"
 			(click)="currentSlide$.next(slide)"
 			(mouseenter)="onSlideChange.emit(slide)"
-			class="font-bold mr-[50px] flex flex-col mb-4 md:mb-0"
+			class="flex-col mb-4 font-boldflex md:mb-0"
 			[ngClass]="{
 				'text-white': currentSlide.id === slide.id,
 				'text-outline text-black/50 font-black':
 					currentSlide.id !== slide.id,
-					'text-left': language === 'en',
-					'text-right': language === 'ar',
+					'text-left  mr-[50px]': language === 'en',
+					'text-right   ml-[50px]': language === 'ar',
 			}"
 			*ngFor="let slide of SLIDERS; trackBy: trackByFn"
 		>

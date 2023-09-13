@@ -1,68 +1,62 @@
-<ng-container *ngIf="language$ | async as language">
-	<div
-		class="relative flex flex-col items-center justify-center w-full h-screen bg-black"
-	>
-		<home-section1-overlay
-			class="absolute top-0 left-0 w-screen h-full z-[5]"
-		/>
-
-		<home-section1-background
-			class="w-full relative z-[1] h-full"
-			[currentSlide]="currentSlide"
-		/>
-
-		<div class="absolute">
-			<home-section1-navigation
-				class="relative z-[6]"
-				[currentSlide]="currentSlide"
-				(onSlideChange)="currentSlide = $event"
-				*ngIf="showNavigation && !(currentSlide$ | async)"
-			/>
-
-			<div
-				*ngIf="currentSlide$ | async"
-				[animateCSS]="['animate__slideInUp', 'animate__faster']"
-				class="text-center relative z-[6] mx-auto"
-			>
-				<div @zoomIn class="text-white font-bold text-[40px]">
-					{{ currentSlide.headline }}
-				</div>
-
-				<div class="max-w-[585px] text-white/70 text-[16px] mt-[16px]">
-					{{ currentSlide.subHeadline }}
-				</div>
-			</div>
-
-			<div
-				@zoomIn
-				[animateCSS]="[
-					'animate__slideOutUp',
-					'animate__delay-4s',
-					'animate__faster'
-				]"
-				class="text-white font-bold text-[35px] relative z-[6]"
-			>
-				بروكا تبدع
-			</div>
-		</div>
-
-		<home-section1-whats-app-and-scroll-down
-			class="absolute bottom-[81px] z-10 flex items-center text-white w-full mx-auto"
-			*ngIf="currentSlide$ | async"
-		/>
-
+<ng-container *ngIf="breakpoint$ | async as breakpoint">
+	<ng-container *ngIf="language$ | async as language">
 		<div
-			*ngIf="!(currentSlide$ | async)"
-			class="absolute bottom-[81px] z-10 flex items-center text-white w-full px-[93px] max-w-screen-lg mx-auto"
+			class="relative flex flex-col items-center justify-center w-full h-screen bg-black"
 		>
-			<home-section1-pages [currentSlide]="currentSlide" />
-
-			<home-section1-socials
-				[ngClass]="{
-					'mr-auto': language === 'en',
-					'ml-auto': language !== 'en'
-				}"
+			<home-section1-overlay
+				class="absolute top-0 left-0 w-screen h-full z-[5]"
 			/>
+
+			<home-section1-background
+				class="w-full relative z-[1] h-full"
+				[currentSlide]="currentSlide"
+			/>
+
+			<div class="absolute">
+				<home-section1-navigation
+					class="relative z-[6]"
+					[currentSlide]="currentSlide"
+					(onSlideChange)="currentSlide = $event"
+					*ngIf="showNavigation && !(currentSlide$ | async)"
+				/>
+
+				<div
+					*ngIf="currentSlide$ | async"
+					[animateCSS]="['animate__slideInUp', 'animate__faster']"
+					class="text-center relative z-[6] mx-auto"
+				>
+					<div @zoomIn class="text-white font-bold text-[40px]">
+						{{ currentSlide.headline }}
+					</div>
+
+					<div
+						class="max-w-[585px] text-white/70 text-sm md:text-[16px] mt-[16px] px-[80px]"
+					>
+						{{ currentSlide.subHeadline }}
+					</div>
+				</div>
+			</div>
+
+			<home-section1-whats-app-and-scroll-down
+				class="absolute bottom-[81px] z-10 flex items-center text-white w-full mx-auto"
+				*ngIf="currentSlide$ | async"
+			/>
+
+			<div
+				*ngIf="!(currentSlide$ | async)"
+				class="absolute p-6 bottom-[81px] z-10 flex items-center text-white w-[100vw] md:px-[93px] md:max-w-screen-lg md:mx-auto"
+			>
+				<home-section1-pages
+					class="flex-none hidden w-3/4 mr-auto md:block"
+					[ngClass]="{
+						'md:mr-auto': language !== 'en',
+						'md:ml-auto': language === 'en'
+					}"
+					[currentSlide]="currentSlide"
+				/>
+
+				<home-section1-socials class="w-full" />
+			</div>
 		</div>
-	</div>
+	</ng-container>
 </ng-container>

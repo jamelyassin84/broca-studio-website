@@ -19,7 +19,7 @@ import { SharedModule } from 'app/shared/shared.module'
 					'changed',
 					style({
 						color: 'yellow',
-						'text-shadow': '0 0 10px rgba(255, 255, 255, 0.5)',
+						'text-shadow': '0 0 50px rgba(255, 255, 255, 0.5)',
 					}),
 				),
 				transition('initial => changed', animate('1000ms')),
@@ -33,7 +33,7 @@ import { SharedModule } from 'app/shared/shared.module'
 					'visible',
 					style({
 						color: '#FE3F7F',
-						'text-shadow': '0 0 10px rgba(94, 71, 150, 0.5)',
+						'text-shadow': '0 0 50px rgba(94, 71, 150, 0.5)',
 					}),
 				),
 				transition('hidden => visible', animate('2000ms')),

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { SLIDERS } from 'app/app-core/constants/slider'
-import { interval, repeat, take } from 'rxjs'
+import { interval, repeat, take, tap } from 'rxjs'
 import { SharedModule } from 'app/shared/shared.module'
 import { dbwAnimations } from '@broca-studio/animations/animation.api'
 import { HomeSection1SocialsComponent } from './components/home-section1-socials/home-section1-socials.component'
@@ -12,6 +12,7 @@ import { HomeSection1OverlayComponent } from './components/home-section1-overlay
 import { HomeSection1WhatsAppAndScrollDownComponent } from './components/home-section1-whats-app-and-scroll-down/home-section1-whats-app-and-scroll-down.component'
 import { SliderService } from 'app/app-core/providers/slider.service'
 import { LanguageService } from 'app/app-core/providers/language.service'
+import { MediaService } from '@broca-studio/utilities/media.service'
 
 const standaloneComponents = [
 	HomeSection1SocialsComponent,
@@ -33,6 +34,7 @@ const standaloneComponents = [
 })
 export class HomeSection1Component {
 	constructor(
+		private readonly _mediaService: MediaService,
 		private readonly _sliderService: SliderService,
 		private readonly _languageService: LanguageService,
 	) {}
@@ -40,6 +42,14 @@ export class HomeSection1Component {
 	readonly language$ = this._languageService.language$
 
 	readonly currentSlide$ = this._sliderService.currentSlide$
+
+	readonly breakpoint$ = this._mediaService.breakpoints$.pipe(
+		tap((breakpoint) => {
+			if (breakpoint === ('phone' as any)) {
+				this.currentSlide = SLIDERS[1]
+			}
+		}),
+	)
 
 	currentSlide = SLIDERS[0]
 
@@ -50,7 +60,8 @@ export class HomeSection1Component {
 	ngOnInit() {
 		const timeOut = setTimeout(() => {
 			this.showNavigation = true
-		}, 5000)
+		}, 4500)
+		this.showNavigation = true
 
 		this.timeOuts.push(timeOut)
 	}
