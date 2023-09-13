@@ -25,7 +25,21 @@ export class NavbarComponent {
 		private readonly _sliderService: SliderService,
 		private readonly _languageService: LanguageService,
 		private readonly _contactUsService: ContactUsService,
-	) {}
+	) {
+		this._router.events
+			.pipe(
+				takeUntilDestroyed(),
+				filter((e) => e instanceof NavigationEnd),
+				tap(() => {
+					this.NAVBAR_NAVIGATION.forEach((nav) => {
+						if (this._router.url.includes(nav.link)) {
+							this.currentNavigation = nav
+						}
+					})
+				}),
+			)
+			.subscribe()
+	}
 
 	readonly language$ = this._languageService.language$
 
@@ -42,21 +56,7 @@ export class NavbarComponent {
 
 	currentNavigation = undefined
 
-	ngOnInit(): void {
-		this._router.events
-			.pipe(
-				takeUntilDestroyed(),
-				filter((e) => e instanceof NavigationEnd),
-				tap(() => {
-					this.NAVBAR_NAVIGATION.forEach((nav) => {
-						if (this._router.url.includes(nav.link)) {
-							this.currentNavigation = nav
-						}
-					})
-				}),
-			)
-			.subscribe()
-	}
+	ngOnInit(): void {}
 
 	setLanguage(language: LanguageEnum | 'en' | 'ar') {
 		location.reload()

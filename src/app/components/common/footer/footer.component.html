@@ -4,10 +4,10 @@
 			' bg-brand-dark-gray': !reversed,
 			'bg-brand-black': reversed
 		}"
-		class="flex flex-col w-full p-[80px] relative pb-[150px]"
+		class="flex flex-col w-full px-6 md:py-[80px] md:px-[80px] relative pb-[150px]"
 	>
 		<div
-			class="grid md:grid-cols-5 gap-[98px] mt-[50px] w-full max-w-screen-lg mx-auto items-start justify-start"
+			class="grid md:grid-cols-5 gap-y-8 gap-x-[90px] md:gap-[98px] mt-[50px] w-full max-w-screen-lg mx-auto items-start justify-start"
 		>
 			<div class="col-span-2">
 				<img
@@ -34,7 +34,7 @@
 					راوبط مختصرة
 				</div>
 
-				<div class="grid grid-cols-1 gap-y-[30px] pt-[25px]">
+				<div class="grid grid-cols-1 gap-y-[30px] md:pt-[25px]">
 					<div
 						role="button"
 						routerLink="/"
@@ -104,12 +104,14 @@
 				</div>
 			</div>
 
-			<div>
+			<div class="col-span-2 md:col-span-1">
 				<div class="font-extrabold text-white text-[20px]">
 					تابعنا علي :
 				</div>
 
-				<div class="grid grid-cols-1 gap-y-[14px] mt-[31px]">
+				<div
+					class="grid grid-cols-2 md:grid-cols-1 gap-y-[14px] mt-[31px]"
+				>
 					<div
 						*ngFor="let social of SOCIALS; trackBy: trackByFn"
 						class="flex items-center"
