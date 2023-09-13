@@ -1,17 +1,16 @@
-<!-- mt-30 -->
-<div class="flex flex-col w-full bg-brand-dark-gray p-[80px]">
+<div class="flex flex-col w-full bg-brand-dark-gray p-6 md:p-[80px] py-16">
 	<div class="text-center font-bold text-white text-[30px] mx-auto">
 		شركاء النجاح
 	</div>
 
 	<div
-		class="text-center font-bold text-white/70 text-[16px] w-[336px] mx-auto"
+		class="text-center font-bold text-white/70 text-sm md:text-[16px] md:w-[578px] mx-auto"
 	>
 		بروكا ُثريك في صناعة محتوى مرئي بإبداعات فريدة تروق لذهنك وتلامس ذائقتك
 	</div>
 
 	<div
-		class="grid grid-cols-2 md:grid-cols-7 gap-[50px] mt-[50px] w-full max-w-screen-lg mx-auto"
+		class="grid grid-cols-4 md:grid-cols-7 gap-y-[25px] gap-x-[50px] md:gap-[50px] mt-[50px] w-full max-w-screen-lg mx-auto px-6 md:px-0"
 	>
 		<div
 			*ngFor="
@@ -21,7 +20,7 @@
 			"
 		>
 			<img
-				class="w-full h-[131px] object-contain"
+				class="w-full md:h-[131px] object-contain"
 				[src]="partner"
 				alt=""
 			/>

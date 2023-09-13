@@ -4,7 +4,7 @@ import { dbwAnimations } from '@broca-studio/animations/animation.api'
 import { MediaService } from '@broca-studio/utilities/media.service'
 import { NAVBAR_NAVIGATION } from 'app/app-core/navigations/navbar-navigation'
 import { SharedModule } from 'app/shared/shared.module'
-import { Observable, map, tap } from 'rxjs'
+import { Observable, filter, map, tap } from 'rxjs'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { SliderService } from 'app/app-core/providers/slider.service'
 import { ContactUsService } from 'app/app-core/providers/contact-us.service'
@@ -25,21 +25,7 @@ export class NavbarComponent {
 		private readonly _sliderService: SliderService,
 		private readonly _languageService: LanguageService,
 		private readonly _contactUsService: ContactUsService,
-	) {
-		this._router.events
-			.pipe(
-				takeUntilDestroyed(),
-				map((e) => e instanceof NavigationEnd),
-				tap(() => {
-					this.NAVBAR_NAVIGATION.forEach((nav) => {
-						if (this._router.url.includes(nav.link)) {
-							this.currentNavigation = nav
-						}
-					})
-				}),
-			)
-			.subscribe()
-	}
+	) {}
 
 	readonly language$ = this._languageService.language$
 
@@ -55,6 +41,22 @@ export class NavbarComponent {
 	readonly NAVBAR_NAVIGATION = NAVBAR_NAVIGATION
 
 	currentNavigation = undefined
+
+	ngOnInit(): void {
+		this._router.events
+			.pipe(
+				takeUntilDestroyed(),
+				filter((e) => e instanceof NavigationEnd),
+				tap(() => {
+					this.NAVBAR_NAVIGATION.forEach((nav) => {
+						if (this._router.url.includes(nav.link)) {
+							this.currentNavigation = nav
+						}
+					})
+				}),
+			)
+			.subscribe()
+	}
 
 	setLanguage(language: LanguageEnum | 'en' | 'ar') {
 		location.reload()
