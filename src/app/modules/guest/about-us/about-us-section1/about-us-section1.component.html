@@ -1,5 +1,5 @@
 <ng-container *ngIf="language$ | async as language">
-	<div class="flex flex-col w-full bg-black p-[80px] mt-30">
+	<div class="flex flex-col w-full bg-black p-6 md:p-[80px] mt-20 md:mt-30">
 		<div
 			@fadeIn
 			class="text-center font-bold text-white text-[30px] mx-auto"
@@ -9,7 +9,7 @@
 
 		<div
 			@fadeIn
-			class="text-center font-bold text-white/70 text-[16px] w-[578px] mx-auto"
+			class="text-center font-bold text-white/70 text-sm md:text-[16px] md:w-[578px] mx-auto"
 		>
 			شركة بروكا للاستشارات والحلول الإبداعية تملك من خلال فريق عملها خبرة
 			تراكمية تزيد عن ١٥ سنة في مجالات تطوير الأعمال والتسويق وصناعة
@@ -19,6 +19,12 @@
 		<div
 			class="grid md:grid-cols-2 gap-[32px] mt-[50px] w-full max-w-screen-lg mx-auto"
 		>
+			<img
+				class="block object-contain h-full rounded-2xl md:hidden"
+				src="../../../../../assets/app/about-us/bg-1.png"
+				alt=""
+			/>
+
 			<div [@listAnimation]="ABOUT_SERVICES.length" class="w-full">
 				<div
 					[ngClass]="{
@@ -29,9 +35,9 @@
 						trackBy: trackByFn;
 						let index = index
 					"
-					class="w-full flex items-center px-[25px] py-[34px] rounded-[20px] bg-brand-card-dark"
+					class="w-full flex text-center flex-col md:flex-row items-center px-6 md:px-[25px] py-[34px] rounded-[20px] bg-brand-card-dark"
 				>
-					<div class="flex-none">
+					<div class="flex-none mb-8 md:mt-0">
 						<img
 							height="81"
 							width="72"
@@ -55,16 +61,21 @@
 							{{ service.description }}
 						</div>
 
-						<div class="grid grid-cols-2 text-white mt-[20px]">
+						<div
+							class="grid gap-y-4 md:grid-cols-2 text-white mt-[20px] w-full"
+						>
 							<div
-								class="text-[16px] flex items-center"
+								class="text-[16px] flex items-center justify-center md:justify-start"
 								*ngFor="
 									let feature of service.features;
 									trackBy: trackByFn
 								"
 							>
 								<img
-									class="ml-[9px]"
+									[ngClass]="{
+										'ml-[9px]': language !== 'en',
+										'mr-[9px]': language === 'en'
+									}"
 									height="24"
 									width="24"
 									ngSrc="../../../../../assets/app/about-us/icons/tick-circle.svg"
@@ -79,7 +90,7 @@
 			</div>
 
 			<img
-				class="object-contain h-full rounded-2xl"
+				class="block object-contain h-full rounded-2xl md:hidden"
 				src="../../../../../assets/app/about-us/bg-1.png"
 				alt=""
 			/>
