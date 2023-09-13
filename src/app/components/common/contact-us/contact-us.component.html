@@ -1,18 +1,18 @@
 <div
 	[ngClass]="{ ' bg-brand-dark-gray': reversed, 'bg-brand-black': !reversed }"
-	class="flex flex-col w-full p-[80px] min-h-[738px] relative"
+	class="flex flex-col w-full md:p-[80px] py-[80px] md:min-h-[738px] relative"
 >
 	<div class="text-center font-bold text-white text-[30px] mx-auto">
 		مستعدون لإبهارك !
 	</div>
 
 	<div
-		class="text-center font-bold text-white/70 text-[16px] w-[578px] mx-auto"
+		class="text-center font-bold text-white/70 text-sm md:text-[16px] md:w-[578px] mx-auto"
 	>
 		بروكا ُثريك في صناعة محتوى مرئي بإبداعات فريدة تروق لذهنك وتلامس ذائقتك
 	</div>
 
-	<div class="mt-[50px] w-full max-w-screen-sm mx-auto px-6">
+	<div class="mt-[50px] w-full max-w-screen-sm mx-auto px-6 relative z-99">
 		<div
 			class="flex items-center h-[62px] rounded-full border border-white/20 mb-[30px] w-full focus-within:ring-2 focus-within:ring-brand-purple"
 		>
@@ -24,6 +24,10 @@
 
 			<input
 				#nameInput
+				[ngClass]="{
+					' bg-brand-dark-gray': reversed,
+					'bg-brand-black': !reversed
+				}"
 				placeholder="الأسم"
 				class="w-full h-full text-white bg-transparent outline-none"
 			/>
@@ -39,6 +43,10 @@
 			/>
 
 			<input
+				[ngClass]="{
+					' bg-brand-dark-gray': reversed,
+					'bg-brand-black': !reversed
+				}"
 				placeholder="رقم الجوال"
 				class="w-full h-full text-white bg-transparent outline-none"
 			/>
@@ -54,6 +62,10 @@
 			/>
 
 			<input
+				[ngClass]="{
+					'bg-brand-dark-gray': reversed,
+					'bg-brand-black': !reversed
+				}"
 				placeholder="البريد الإلكتروني"
 				class="w-full h-full text-white bg-transparent outline-none"
 			/>
@@ -66,7 +78,7 @@
 		</button>
 	</div>
 
-	<div class="absolute left-0 -bottom-6">
+	<div class="absolute left-0 opacity-50 -bottom-6 -z-0 md:opacity-100">
 		<img
 			width="322"
 			height="474"
